@@ -1,8 +1,8 @@
 
 
 label intro:
-    scene bg campagne
+    scene bg rue_haussmann
     with dissolve
     show screen valeurs_traits
-    "Début de chez Jeanne !"
-    jump fin_cycle
+    "choix de coterie PAS FAIT => templier choisi par défaut pour l'instant"
+    jump initiation
