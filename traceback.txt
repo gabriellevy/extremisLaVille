@@ -1,0 +1,34 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/globalFunctions.rpy", line 1, in script
+    init -2 python:
+  File "game/globalFunctions.rpy", line 1, in script
+    init -2 python:
+  File "game/globalFunctions.rpy", line 26, in <module>
+    francs_ = francs.Francs()
+NameError: name 'francs' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 560, in main
+    renpy.game.context().run(node)
+  File "game/globalFunctions.rpy", line 1, in script
+    init -2 python:
+  File "game/globalFunctions.rpy", line 1, in script
+    init -2 python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/globalFunctions.rpy", line 26, in <module>
+    francs_ = francs.Francs()
+NameError: name 'francs' is not defined
+
+Windows-10-10.0.19041
+Ren'Py 7.4.11.2266
+extremisLaVille 1.0
+Thu May 19 20:45:47 2022
