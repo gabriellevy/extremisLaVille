@@ -20,7 +20,7 @@ init -5 python:
         sceneParDefaut = ""
         # régénère les événements compatibles avec la situation
         evtsVides_ = [
-        # "evtRien1"
+        "evtRien1"
         ]
         scenesParDefaut = []
         musiquesAEnquiller = []
@@ -33,17 +33,17 @@ init -5 python:
             # images
             scenesParDefaut.append("bg crucifixion")
             # musiques
-            musiquesAEnquiller.append("musique/journeytoabsolution.ogg")
+            # musiquesAEnquiller.append("musique/journeytoabsolution.ogg")
 
         # saison
         saison = situation.GetDateDuJour().GetSaison()
         if saison == temps.Date.PRINTEMPS:
             evtsVides_.append("evtRien1_printemps")
-            musiquesAEnquiller.append("musique/Sea Season.ogg")
-        if saison == temps.Date.HIVER:
-            musiquesAEnquiller.append("musique/Dark Season.ogg")
-        if saison == temps.Date.ETE:
-            musiquesAEnquiller.append("musique/Fire Season.ogg")
+            # musiquesAEnquiller.append("musique/Sea Season.ogg")
+        # if saison == temps.Date.HIVER:
+            # musiquesAEnquiller.append("musique/Dark Season.ogg")
+        # if saison == temps.Date.ETE:
+            # musiquesAEnquiller.append("musique/Fire Season.ogg")
         if saison == temps.Date.AUTOMNE:
             evtsVides_.append("evtRien1_automne")
             evtsVides_.append("evtRien2_automne")
@@ -54,7 +54,7 @@ init -5 python:
             evtsVides_ = ["evtRien1", "evtRien2" ]
 
         if len(scenesParDefaut) == 0:
-            sceneParDefaut = "bg cours_merovingienne"
+            scenesParDefaut = ["bg priere"]
 
         # ajoute une musique à la file au hasard :
         if len(musiquesAEnquiller) != 0:
@@ -66,6 +66,10 @@ init -5 python:
             renpy.show(random.choice(scenesParDefaut))
         # en lance un au hasard
         renpy.jump(random.choice(evtsVides_))
+
+label evtRien1:
+    "PAS FAIT : evt vide"
+    jump fin_cycle
 
 label evtRien1_automne:
     "C'est l'époque des semailles d'orge."
