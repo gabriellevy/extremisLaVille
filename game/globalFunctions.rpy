@@ -1,14 +1,14 @@
 init -2 python:
     from abs import carac
-    from spe import situation_jeanne
+    from spe import situation_spe
     from abs.humanite import trait
     from abs.humanite import metier
     from abs.univers import temps
     from abs.humanite.sante import pbsante
-    from chapitres.classes import jeanne
+    from chapitres.classes import perso
     import random
 
-    situation_ = situation_jeanne.SituationJeanne() # dictionnaire contenant toutes les caracs courantes de la partie
+    situation_ = situation_spe.SituationSpe() # dictionnaire contenant toutes les caracs courantes de la partie
     filtre_ = filtres_action.FiltreAction() # objet contenant les préférences du joueur pour les actions à afficher ou cacher en priorité
     traits_ = trait.CollectionTraits()
     situation_.collectionTraits = traits_

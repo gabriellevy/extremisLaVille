@@ -1,25 +1,23 @@
 from abs.religions import religion
-from chapitres.classes import jeanne
-from spe.humanite import portrait_jeanne
-from abs.humanite import portrait
-from spe.humanite import pnj_jeanne
+# from chapitres.classes import perso
+from spe.humanite import pnj_spe
 from abs import situation
 from abs.humanite import metier
 from abs.humanite import pnj
 from abs.humanite import trait
 import random
 
-class SituationJeanne(situation.Situation):
+class SituationSpe(situation.Situation):
 
     def __init__(self):
         situation.Situation.__init__(self, 175000)
 
     # ------------------------------------------------AFFICHAGE---------------------------------------
-    def AffichageGloire(self):
-        val = self.GetValCarac(jeanne.Jeanne.C_GLOIRE)
-        if self.debug_:
-            return u"Gloire : {}".format(val)
-        return u""
+    # def AffichageGloire(self):
+    #     val = self.GetValCarac(perso.Perso.C_GLOIRE)
+    #     if self.debug_:
+    #         return u"Gloire : {}".format(val)
+    #     return u""
 
     def DeterminerPortrait(self):
         """

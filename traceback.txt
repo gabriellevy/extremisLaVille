@@ -1,33 +1,71 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/evts_generaux/rien.rpy", line 91, in script
-    $ LancerEvtVide(situation_)
-  File "game/evts_generaux/rien.rpy", line 91, in <module>
-    $ LancerEvtVide(situation_)
-  File "game/evts_generaux/rien.rpy", line 66, in LancerEvtVide
-    renpy.show(random.choice(scenesParDefaut))
-IndexError: list index out of range
+  File "game/chapitres/0-intro.rpy", line 7, in script
+    "Début de chez Jeanne !"
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+  File "game/screens.rpy", line 1535, in execute
+    screen valeurs_traits():
+  File "game/screens.rpy", line 1535, in execute
+    screen valeurs_traits():
+  File "game/screens.rpy", line 1539, in execute
+    $ affAge = situation_.AffichageAge()
+  File "game/screens.rpy", line 1539, in <module>
+    $ affAge = situation_.AffichageAge()
+KeyError: u'Date de naissance'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/evts_generaux/rien.rpy", line 91, in script
-    $ LancerEvtVide(situation_)
-  File "renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/evts_generaux/rien.rpy", line 91, in <module>
-    $ LancerEvtVide(situation_)
-  File "game/evts_generaux/rien.rpy", line 66, in LancerEvtVide
-    renpy.show(random.choice(scenesParDefaut))
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/random.py", line 277, in choice
-  File "renpy/python.py", line 992, in __getitem__
-    rv = list.__getitem__(self, index)
-IndexError: list index out of range
+  File "game/chapitres/0-intro.rpy", line 7, in script
+    "Début de chez Jeanne !"
+  File "renpy/ast.py", line 691, in execute
+    statement_name("say")
+  File "renpy/ast.py", line 46, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+  File "renpy/exports.py", line 1684, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "renpy/display/core.py", line 2762, in do_with
+    clear=clear)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 1535, in execute
+    screen valeurs_traits():
+  File "game/screens.rpy", line 1535, in execute
+    screen valeurs_traits():
+  File "game/screens.rpy", line 1539, in execute
+    $ affAge = situation_.AffichageAge()
+  File "game/screens.rpy", line 1539, in <module>
+    $ affAge = situation_.AffichageAge()
+  File "abs/situation.py", line 281, in AffichageAge
+KeyError: u'Date de naissance'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 extremisLaVille 1.0
-Thu May 19 21:30:28 2022
+Thu May 19 22:04:54 2022

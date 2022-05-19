@@ -1,4 +1,4 @@
-Thu May 19 21:32:54 2022
+Thu May 19 22:07:33 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
@@ -7,8 +7,8 @@ Bootstrap to the start of init.init took 0.05s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.01s
-Loading script took 0.09s
-Loading save slot metadata. took 0.00s
+Loading script took 0.17s
+Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.07s
@@ -25,13 +25,13 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
 Creating interface object took 0.21s
 Cleaning stores took 0.00s
-Init translation took 0.02s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.04s
-Save pyanalysis. took 0.00s
+Save pyanalysis. took 0.02s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
@@ -47,3 +47,7 @@ Version: '4.6.0 NVIDIA 511.65'
 Display Info: None
 Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Maximum texture size: 4096x4096
+1
+0
+1
+0

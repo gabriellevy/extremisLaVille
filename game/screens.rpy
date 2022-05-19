@@ -1536,34 +1536,15 @@ screen valeurs_traits():
     tag interface_personnage
     $ descriptionTrait = situation_.DescriptionTraits(traits_)
     $ descriptionBlessures = situation_.DescriptionBlessuresEtMaladies(blessures_, maladies_)
-    $ affAge = situation_.AffichageAge()
-    $ affDate = situation_.AffichageDate()
     $ strMetier = situation_.AffichageMetier()
-    $ patronyme = situation_.AffichagePatronyme()
-    $ strGloire = situation_.AffichageGloire()
-    $ adressePortrait = situation_.DeterminerPortrait()
-    $ strAffichagePortraitPere = situation_.AffichagePortraitPere()
-    $ strAffichagePere = situation_.AffichagePere()
-    $ strAffichagePortraitMere = situation_.AffichagePortraitMere()
-    $ strAffichageMere = situation_.AffichageMere()
+    # $ strGloire = situation_.AffichageGloire()
     frame:
         xpos 5 ypos 5
         vbox:
             textbutton _("Description suivante"):
                 action Function(InterfaceSuivante)
-            if interfaceMode_ == 0: # résumé, portrait, nom, age, blessures...
-                add "[adressePortrait]"
-                # text _(u"[patronyme]")
-                text _(u"[affAge]")
+            if interfaceMode_ == 0: # résumé des données importantes du perso
                 text _(u"[descriptionBlessures]")
-                text _(u"[strGloire]")
-                text _(u"[affDate]")
-            elif interfaceMode_ == 1: # Famille
-                text _(" Père : ")
-                hbox:
-                    add "[strAffichagePortraitPere]" size(147, 164)
-                    text _(u"[strAffichagePere]") yalign 0.5
-                text _("\n Mère : ")
-                hbox:
-                    add "[strAffichagePortraitMere]" size(147, 164)
-                    text _(u"[strAffichageMere]") yalign 0.5
+                # text _(u"[strGloire]")
+            elif interfaceMode_ == 1: # données d'enquête ??
+                text _(" Rien PAS FAIT ")
