@@ -4,4 +4,4 @@ label initiation:
     with dissolve
     show screen valeurs_traits
     "initiation en tant que templier PAS FAIT => "
-    jump fin_cycle
+    jump declenchement
