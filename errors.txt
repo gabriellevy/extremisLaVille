@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/evts_generaux/rien.rpy", line 47: expected an indented block
-        if saison == temps.Date.AUTOMNE:
-          ^
-    
+File "game/chapitres/4-exploration.rpy", line 10: u'scene' is not a keyword argument or valid child for the screen statement.
+    scene carte_la_ville idle
+         ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Thu May 19 21:28:55 2022
+Sun May 22 18:06:54 2022
