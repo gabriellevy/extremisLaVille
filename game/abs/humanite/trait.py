@@ -130,7 +130,8 @@ class Celebrite(TraitGraduel):
                 return u"Glorieux"
             return u"Célèbre"
         else:
-            return "Inconnu"
+            return ""
+            #return "Inconnu"
 
     def PeutEtrePrisALaNaissance(self):
         return False

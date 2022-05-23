@@ -1544,7 +1544,9 @@ screen valeurs_traits():
             textbutton _("Description suivante"):
                 action Function(InterfaceSuivante)
             if interfaceMode_ == 0: # résumé des données importantes du perso
+                text _(u"[strMetier]")
                 text _(u"[descriptionBlessures]")
+                text _(u"[descriptionTrait]")
                 # text _(u"[strGloire]")
             elif interfaceMode_ == 1: # données d'enquête ??
                 text _(" Rien PAS FAIT ")

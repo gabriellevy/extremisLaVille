@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/chapitres/4-exploration.rpy", line 10: u'scene' is not a keyword argument or valid child for the screen statement.
-    scene carte_la_ville idle
-         ^
+The label naissance is defined twice, at File "game/chapitres/0-naissance.rpy", line 60:
+label naissance:
+and File "game/chapitres/naissance.rpyc", line 57:
+label naissance:
+
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun May 22 18:06:54 2022
+Mon May 23 22:02:27 2022

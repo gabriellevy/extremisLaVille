@@ -22,7 +22,7 @@ class Metier:
         """
          le membre 'nom_' sert à la fois :
          -  d'identifiant du métier en étant la valeur de la carac 'C_METIER'
-         - de niveau de compétence dans ce métier en étant l'identifiant d'une carac chiffré correspondant à ce niveau
+         - de niveau de compétence dans ce métier en étant l'identifiant d'une carac chiffrée correspondant à ce niveau
          """
         self.nom_ = "pas de nom de métier, doit être overridé"
 
