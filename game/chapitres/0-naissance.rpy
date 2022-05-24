@@ -10,7 +10,7 @@ init -5 python:
     from abs.humanite import trait
     from spe.humanite import pnj_spe
     from abs.univers import temps
-    # from geographie import quartier
+    from abs.univers.geographie import quartier
     from abs.humanite import identite
     from chapitres.classes import perso
     from abs.religions import religion
