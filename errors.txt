@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label naissance is defined twice, at File "game/chapitres/0-naissance.rpy", line 60:
-label naissance:
-and File "game/chapitres/naissance.rpyc", line 57:
-label naissance:
-
+File "game/chapitres/0-naissance.rpy", line 107: expected ':' not found.
+    menu
+        ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon May 23 22:02:27 2022
+Tue May 24 20:48:34 2022

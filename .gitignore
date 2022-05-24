@@ -132,3 +132,7 @@ dmypy.json
 *.save
 game/saves/persistent
 log.txt
+game/saves/navigation.json
+game/saves/persistent
+log.txt
+traceback.txt

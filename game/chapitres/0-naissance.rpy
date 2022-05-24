@@ -15,6 +15,8 @@ init -5 python:
     from chapitres.classes import perso
     from abs.religions import religion
     from abs.humanite import pnj
+    from spe.univers import coterie
+    from spe.univers.coteries import templiers
 
     def genererDateNaissance(situation, ageActuel=15):
         nbJoursDateNaissance = situation[temps.Date.DATE] - 365*ageActuel
@@ -101,10 +103,16 @@ init -5 python:
 label naissance:
     scene bg rue_haussmann
     with dissolve
-    "choix de coterie PAS FAIT => templier choisi par défaut pour l'instant"
-    #$ situation_.SetValCarac(coterie.Coterie.NOM, templier.Templier.ID)
-    #if situation_.GetValCarac(coterie.Coterie.NOM) === templier.Templier.ID:
     $ genererDateNaissance(situation_, 17)
-    $ genererPersoTemplier(situation_, traits_)
+    menu:
+        "Choisissez votre coterie. Cela affectera non seulement votre personnage de départ mais aussi l'histoire principale."
+        "Les templiers, une coterie d'honorables guerriers chrétiens ayant fait voeu de pauvreté et de chasteté":
+            $ situation_.SetValCarac(coterie.Coterie.C_COTERIE, templiers.Templiers.ID)
+        "Ben il n'y a rien d'autre ! ":
+            $ situation_.SetValCarac(coterie.Coterie.C_COTERIE, "")
+
+    if situation_.GetValCarac(coterie.Coterie.C_COTERIE) == templiers.Templiers.ID:
+        $ genererPersoTemplier(situation_, traits_)
+
     # $ genererParents(situation_)
     jump initiation
