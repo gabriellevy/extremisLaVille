@@ -17,6 +17,11 @@ init -5 python:
     from abs.humanite import pnj
     from spe.univers import coterie
     from spe.univers.coteries import templiers
+    from spe.univers.coteries import elfes
+    from spe.univers.coteries import orks
+    from spe.univers.coteries import transhumanistes
+    from spe.univers.coteries import zaporogues
+    from spe.univers.coteries import conquistadors
 
     def genererDateNaissance(situation, ageActuel=15):
         nbJoursDateNaissance = situation[temps.Date.DATE] - 365*ageActuel

@@ -1,7 +1,7 @@
 from spe.univers import coterie
 from abs.humanite import metier
 from abs.humanite import trait
-# from extremis.geographie import quartier
+from abs.univers.geographie import quartier
 import random
 
 class Templiers(coterie.Coterie):
@@ -16,7 +16,7 @@ class Templiers(coterie.Coterie):
     def __init__(self):
         self.nom_ = Templiers.NOM
         self.id_ = Templiers.ID
-        # self.quartier_ = quartier.SaintDenis.NOM
+        self.quartier_ = quartier.SaintDenis.NOM
 
     def getLabelUniversite(self):
         return "univTempliers"

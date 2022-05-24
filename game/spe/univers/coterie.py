@@ -1,5 +1,5 @@
 import random
-# from extremis.geographie import quartier
+from abs.univers.geographie import quartier
 from abs.humanite import identite
 from abs.univers import culture
 
@@ -36,7 +36,6 @@ class Coterie(culture.Culture):
         """
         retourne l'objet Quartier qui est le quartier principal de la coterie
         """
-        # return m_Quartier
         return ""
 
     def AffichageSituationDansCoterie(self, situation):
