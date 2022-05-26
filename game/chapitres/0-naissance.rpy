@@ -24,8 +24,9 @@ init -5 python:
     from spe.univers.coteries import conquistadors
 
     def genererDateNaissance(situation, ageActuel=15):
-        nbJoursDateNaissance = situation[temps.Date.DATE] - 365*ageActuel
-        situation[temps.Date.DATE_NAISSANCE] = nbJoursDateNaissance
+        date = getattr(situation, temps.Date.DATE)
+        nbJoursDateNaissance = date - 365*ageActuel
+        setattr(situation, temps.Date.DATE_NAISSANCE, nbJoursDateNaissance)
 
     # def genererParents(situation):
         # pere = pnj_spe.GenererPNJSpe(True, situation, 43 * 12 *30 + 24)
@@ -108,15 +109,15 @@ init -5 python:
 label naissance:
     scene bg rue_haussmann
     with dissolve
-    $ genererDateNaissance(situation_, 17)
+    $ genererDateNaissance(Situation(situation_), 17)
     menu:
         "Choisissez votre coterie. Cela affectera non seulement votre personnage de départ mais aussi l'histoire principale."
         "Les templiers, une coterie d'honorables guerriers chrétiens ayant fait voeu de pauvreté et de chasteté":
-            $ situation_.SetValCarac(coterie.Coterie.C_COTERIE, templiers.Templiers.ID)
+            $ setattr(situation_, coterie.Coterie.C_COTERIE, templiers.Templiers.ID)
         "Ben il n'y a rien d'autre ! ":
-            $ situation_.SetValCarac(coterie.Coterie.C_COTERIE, "")
+            $ setattr(situation_, coterie.Coterie.C_COTERIE, "")
 
-    if situation_.GetValCarac(coterie.Coterie.C_COTERIE) == templiers.Templiers.ID:
+    if getattr(situation_, coterie.Coterie.C_COTERIE) == templiers.Templiers.ID:
         $ genererPersoTemplier(situation_, traits_)
 
     # $ genererParents(situation_)

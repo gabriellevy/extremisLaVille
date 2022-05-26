@@ -1,4 +1,7 @@
-﻿# Persos
+﻿# toutes les datas d'état du jeu (sauvegardées etc)
+default situation_ = SituationSpe("situation_")
+
+# Persos
 define narrator = Character(color="#fafad8", what_italic=True)
 define std = Character('Perso standard...', color="#B22222") # personnage standard remplacé selon les situations. (son nom est mis à jour)
 define cl = Character('Baudoin', color="#800000")
@@ -24,12 +27,29 @@ init -1 python:
     # mise en place des caracs de bases
     # MiseEnPlaceCaracsSyagrius()
 
+label init_secondary_data:
+    python:
+        filtre_ = filtres_action.FiltreAction() # objet contenant les préférences du joueur pour les actions à afficher ou cacher en priorité
+        traits_ = trait.CollectionTraits()
+        situation_.collectionTraits = traits_
+        blessures_ = pbsante.CollectionBlessures()
+        situation_.collectionBlessures = blessures_
+        maladies_ = pbsante.CollectionMaladies()
+        situation_.collectionMaladies = maladies_
+        # quartiers_ = quartier.CollectionQuartiers()
+        # situation_.collectionQuartiers = quartiers_
+        metiers_ = metier.CollectionMetiers()
+        situation_.collectionMetiers = metiers_
+        debug_ = True
+        situation_.debug_ = debug_
+    jump naissance
+
 # Le jeu commence ici
 label start:
     scene bg priere
     # play music musique_menu
     # queue music [ epique_principale, conquetes ] # pseudo liste de lecture temporaire
-    jump naissance
+    jump init_secondary_data
 
 label debut_cycle:
     show screen valeurs_traits
@@ -42,7 +62,7 @@ label fin_cycle:
 
     $ situation_.TourSuivant()
 
-    if situation_["Santé"] != "Mort":
+    if getattr(situation_, "Santé") != "Mort":
         jump debut_cycle
 
 label mort:

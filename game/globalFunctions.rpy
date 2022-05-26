@@ -1,32 +1,15 @@
-init -2 python:
+init 0 python:
     from abs import carac
-    from spe import situation_spe
     from abs.humanite import trait
     from abs.humanite import metier
     from abs.univers import temps
     from abs.humanite.sante import pbsante
     from chapitres.classes import perso
     import random
-
-    situation_ = situation_spe.SituationSpe() # dictionnaire contenant toutes les caracs courantes de la partie
-    filtre_ = filtres_action.FiltreAction() # objet contenant les préférences du joueur pour les actions à afficher ou cacher en priorité
-    traits_ = trait.CollectionTraits()
-    situation_.collectionTraits = traits_
-    blessures_ = pbsante.CollectionBlessures()
-    situation_.collectionBlessures = blessures_
-    maladies_ = pbsante.CollectionMaladies()
-    situation_.collectionMaladies = maladies_
-    # quartiers_ = quartier.CollectionQuartiers()
-    # situation_.collectionQuartiers = quartiers_
-    metiers_ = metier.CollectionMetiers()
-    situation_.collectionMetiers = metiers_
     interfaceMode_ = 0
     nbInterfaceMode_ = 2
     # cultures / coteries
     # francs_ = francs.Francs()
-
-    debug_ = True
-    situation_.debug_ = debug_
 
     # text fade system
     time_ = 2.0 # seconds of fade
@@ -55,8 +38,7 @@ init -2 python:
         """
         simple racourci
         """
-        global situation_
-        return situation_.GetValCarac(caracId)
+        return getattr(situation_, caracId)
 
     def GetValCaracInt(caracId):
         """

@@ -138,3 +138,7 @@ log.txt
 traceback.txt
 game/saves/navigation.json
 game/saves/persistent
+errors.txt
+*.bak
+game/saves/navigation.json
+game/tl/None/common.rpymc
