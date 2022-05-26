@@ -42,12 +42,13 @@ init -5 python:
         # situation.SetValCarac(pnj.Pnj.C_MERE, mere)
 
     def genererPersoTemplier(situation, tousLesTraits):
+        setattr(situation_, religion.Religion.C_RELIGION, religion.Christianisme.NOM)
         # traits de base
-        situation[trait.Richesse.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Sexualite.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Cupidite.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Honorabilite.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Courage.NOM] = trait.Trait.SEUIL_A
+        setattr(situation_, trait.Richesse.NOM, trait.Trait.SEUIL_A_PAS)
+        setattr(situation_, trait.Honorabilite.NOM, trait.Trait.SEUIL_A)
+
+        # compétences indispensables pour un templier
+        setattr(situation, metier.Guerrier.NOM, 1)
 
         # caracs secondaire selon choix au lancement
         situation[trait.Ruse.NOM] = trait.Trait.SEUIL_A
@@ -63,7 +64,6 @@ init -5 python:
 
         # métier et/ou compétences secondaires à choisir à la création
         situation[metier.Bibliothecaire.NOM] = 5
-        situation[metier.Pretre.NOM] = 5
         situation[metier.Ouvrier.NOM] = 5
         situation[metier.Medecin.NOM] = 5
         situation[metier.TueurDeMonstres.NOM] = 5

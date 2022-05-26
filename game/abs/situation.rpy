@@ -279,23 +279,23 @@ init -20 python:
         #         return None
         #     return self.collectionQuartiers[valQuartierStr]
 
-        # def CreerCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
-        #     self.AjouterCarac(idCarac, valCarac)
-        #     if valeurMin != "":
-        #         self.valsMin_[idCarac] = valeurMin
-        #     if valeurMax != "":
-        #         self.valsMax_[idCarac] = valeurMax
+        def CreerCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
+            self.AjouterCarac(idCarac, valCarac)
+            if valeurMin != "":
+                self.valsMin_[idCarac] = valeurMin
+            if valeurMax != "":
+                self.valsMax_[idCarac] = valeurMax
 
-        # def SetCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
+        def SetCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
             # si la carac n'existe pas encore, la créer
-            # if not hasattr(self, idCarac) or getattr(self, idCarac) == "":
-            #     self.CreerCarac(idCarac, valCarac, valeurMin, valeurMax)
+            if not hasattr(self, idCarac) or getattr(self, idCarac) == "":
+                 self.CreerCarac(idCarac, valCarac, valeurMin, valeurMax)
 
-            # self.caracs_[idCarac] = valCarac
-            # if valeurMin != "":
-            #     self.valsMin_[idCarac] = valeurMin
-            # if valeurMax != "":
-            #     self.valsMax_[idCarac] = valeurMax
+            setattr(self, idCarac, valCarac)
+            if valeurMin != "":
+                self.valsMin_[idCarac] = valeurMin
+            if valeurMax != "":
+                self.valsMax_[idCarac] = valeurMax
 
         # def SetValCaracSiInferieur(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
             # """
@@ -334,13 +334,13 @@ init -20 python:
 
         def AjouterACarac(self, idCarac, valCarac):
             # si la carac n'existe pas encore, la créer
-            if not idCarac in self.caracs_ or self.caracs_[idCarac] == "":
+            if not hasattr(self, idCarac) or getattr(self, idCarac) == "":
                 self.CreerCarac(idCarac, 0)
 
-            valActuelleF = float(self.caracs_[idCarac])
+            valActuelleF = float(getattr(self, idCarac))
             finalVal = valActuelleF + float(valCarac)
-            if idCarac in self.valsMax_ and finalVal > self.valsMax_[idCarac]:
-                finalVal = self.valsMax_[idCarac]
+            # if idCarac in self.valsMax_ and finalVal > self.valsMax_[idCarac]: # A FAIRE : refaire marcher les valsMax_ et valsMin_
+            #     finalVal = self.valsMax_[idCarac]
             self.SetCarac(idCarac, finalVal)
 
         def RetirerACarac(self, idCarac, valCarac):
@@ -348,10 +348,10 @@ init -20 python:
             if not hasattr(self, idCarac) or getattr(self, idCarac) == "":
                 self.CreerCarac(idCarac, 0)
 
-            valActuelleF = float(self.caracs_[idCarac])
+            valActuelleF = float(getattr(self, idCarac))
             finalVal = valActuelleF - valCarac
-            if idCarac in self.valsMin_ and finalVal < self.valsMin_[idCarac]:
-                finalVal = self.valsMin_[idCarac]
+            # if idCarac in self.valsMin_ and finalVal < self.valsMin_[idCarac]: # A FAIRE : refaire marcher les valsMax_ et valsMin_
+            #     finalVal = self.valsMin_[idCarac]
             self.SetCarac(idCarac, finalVal)
 
         def GetTraits(self):
@@ -576,7 +576,7 @@ init -20 python:
             return str(self)
 
         def AjouterCarac(self, idCarac, val):
-            setattr(idCarac, val)
+            setattr(self, idCarac, val)
 
     # DATES ET TEMPS QUI PASSE-----------------------------------------------------------------------------------------------------------
         def AffichageDate(self):
