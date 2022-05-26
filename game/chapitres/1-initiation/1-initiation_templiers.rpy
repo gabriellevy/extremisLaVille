@@ -44,7 +44,7 @@ label initiation_templiers:
         "Quelle est votre plus grand défaut ?"
         "Un tempérament ultraviolent":
             $ AjouterACarac(trait.Ruse.NOM, 5)
-        "Je suis maladroit":
+        "Je suis maladroit" if situation_.GetValCaracInt(trait.Habilete.NOM) < 0:
             $ RetirerACarac(trait.Habilete.NOM, 2)
         "Je suis facilement malade":
             $ RetirerACarac(trait.Constitution.NOM, 2)
