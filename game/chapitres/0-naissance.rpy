@@ -62,8 +62,6 @@ init -5 python:
         situation[trait.Altruisme.NOM] = trait.Trait.SEUIL_A
 
         # métier et/ou compétences secondaires à choisir à la création
-        situation[metier.Metier.C_METIER] = metier.Paysan.NOM
-        situation[metier.Paysan.NOM] = 5
         situation[metier.Bibliothecaire.NOM] = 5
         situation[metier.Pretre.NOM] = 5
         situation[metier.Ouvrier.NOM] = 5
@@ -110,15 +108,13 @@ label naissance:
     scene bg rue_haussmann
     with dissolve
     $ genererDateNaissance(Situation(situation_), 17)
+    $ setattr(situation_, coterie.Coterie.C_COTERIE, "")
     menu:
         "Choisissez votre coterie. Cela affectera non seulement votre personnage de départ mais aussi l'histoire principale."
         "Les templiers, une coterie d'honorables guerriers chrétiens ayant fait voeu de pauvreté et de chasteté":
             $ setattr(situation_, coterie.Coterie.C_COTERIE, templiers.Templiers.ID)
-        "Ben il n'y a rien d'autre ! ":
-            $ setattr(situation_, coterie.Coterie.C_COTERIE, "")
-
-    if getattr(situation_, coterie.Coterie.C_COTERIE) == templiers.Templiers.ID:
-        $ genererPersoTemplier(situation_, traits_)
+            $ genererPersoTemplier(situation_, traits_)
+            jump initiation_templiers
 
     # $ genererParents(situation_)
     jump initiation

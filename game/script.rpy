@@ -1,10 +1,11 @@
 ﻿# toutes les datas d'état du jeu (sauvegardées etc)
 default situation_ = SituationSpe("situation_")
 
-# Persos
+# --------------------------------------------
+# ------------------Persos
+# --------------------------------------------
 define narrator = Character(color="#fafad8", what_italic=True)
 define std = Character('Perso standard...', color="#B22222") # personnage standard remplacé selon les situations. (son nom est mis à jour)
-define cl = Character('Baudoin', color="#800000")
 
 # Musiques
 # define audio.roi_mort = "musique/akingisdead.ogg"
