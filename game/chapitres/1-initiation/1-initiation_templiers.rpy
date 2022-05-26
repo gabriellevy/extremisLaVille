@@ -28,15 +28,20 @@ label initiation_templiers:
         "À quel métier vous êtes vous formé durant ce séjour ?"
         "Je travaillais dans les champs, je m'occupais des troupeaux.":
             $ setattr(situation_, metier.Metier.C_METIER, metier.Paysan.NOM)
-            $ setattr(situation_, metier.Paysan.NOM, 3)
+            $ AjouterACarac(metier.Paysan.NOM, 3)
             $ AjouterACarac(trait.Constitution.NOM, 1)
-            "Un métier noble et précieux pour la communauté. Et qui endurcit le corps. Je vous félicite."
+            lambert "Un métier noble et précieux pour la communauté. Et qui endurcit le corps. Je vous félicite."
         "Le prêtre de la commanderie m'a fait l'honneur de me nommer vicaire.":
             $ setattr(situation_, metier.Metier.C_METIER, metier.Pretre.NOM)
-            $ setattr(situation_, metier.Pretre.NOM, 3)
+            $ AjouterACarac( metier.Pretre.NOM, 3)
             $ AjouterACarac(religion.Religion.C_MIRACLE, 1)
-            "Un grand honneur en effet. Votre foi et votre dévotion doivent être à toute épreuve."
-
+            lambert "Un grand honneur en effet. Votre foi et votre dévotion doivent être à toute épreuve."
+        "J'étais un chevalier éclaireur, je patrouillais le long des frontières.":
+            $ setattr(situation_, metier.Metier.C_METIER, metier.Chevalier.NOM)
+            $ AjouterACarac( metier.Chevalier.NOM, 3)
+            $ AjouterACarac( metier.Paysan.NOM, 1)
+            $ AjouterACarac( metier.Guerrier.NOM, 1)
+            lambert "Vous avez du affronter bien des dangers. Ici votre vie devrait être plus calme."
 
     show screen valeurs_traits
     jump declenchement

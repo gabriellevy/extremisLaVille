@@ -68,7 +68,6 @@ init -5 python:
         situation[metier.Medecin.NOM] = 5
         situation[metier.TueurDeMonstres.NOM] = 5
         situation[metier.Architecte.NOM] = 5
-        situation[metier.Guerrier.NOM] = 5
         situation[metier.Vigile.NOM] = 5
         situation[metier.Policier.NOM] = 5
         situation[metier.Banquier.NOM] = 5
