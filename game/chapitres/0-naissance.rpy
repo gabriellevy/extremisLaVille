@@ -62,18 +62,6 @@ init -5 python:
         situation[trait.Ascetisme.NOM] = trait.Trait.SEUIL_A
         situation[trait.Altruisme.NOM] = trait.Trait.SEUIL_A
 
-        # métier et/ou compétences secondaires à choisir à la création
-        situation[metier.Bibliothecaire.NOM] = 5
-        situation[metier.Ouvrier.NOM] = 5
-        situation[metier.Medecin.NOM] = 5
-        situation[metier.TueurDeMonstres.NOM] = 5
-        situation[metier.Architecte.NOM] = 5
-        situation[metier.Vigile.NOM] = 5
-        situation[metier.Policier.NOM] = 5
-        situation[metier.Banquier.NOM] = 5
-        situation[metier.GardeDuCorps.NOM] = 5
-        situation[metier.Aventurier.NOM] = 5
-
         # défaut selon choix au lancement
         situation[trait.Violence.NOM] = trait.Trait.SEUIL_A
         situation[trait.Charme.NOM] = trait.Trait.SEUIL_A_PAS
@@ -87,9 +75,6 @@ init -5 python:
         situation[trait.Opportunisme.NOM] = trait.Trait.SEUIL_A
         situation[trait.Intelligence.NOM] = trait.Trait.SEUIL_A_PAS
         situation[trait.Courage.NOM] = trait.Trait.SEUIL_A_PAS
-
-        # compétences professionnelles
-        # situation[metier.Politique.NOM] = trait.Trait.SEUIL_A
 
         # caracs spécifiques
         # situation.SetValCarac(perso.Perso.C_GLOIRE, 0)
