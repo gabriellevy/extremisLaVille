@@ -37,20 +37,6 @@ init -5 python:
         # compétences indispensables pour un templier
         setattr(situation, metier.Guerrier.NOM, 1)
 
-        # défaut selon choix au lancement
-        situation[trait.Violence.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Charme.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Observation.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Habilete.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Beaute.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Constitution.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Force.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Sexualite.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Cupidite.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Opportunisme.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Intelligence.NOM] = trait.Trait.SEUIL_A_PAS
-        situation[trait.Courage.NOM] = trait.Trait.SEUIL_A_PAS
-
         situation[identite.Identite.C_NOM] = "Baudoin"
 
         # situation[jeanne.Jeanne.CARTE_ACTUELLE] = "bg carte481"

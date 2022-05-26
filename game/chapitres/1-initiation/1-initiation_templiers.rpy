@@ -40,6 +40,21 @@ label initiation_templiers:
         "Je suis très intelligent":
             $ AjouterACarac(trait.Intelligence.NOM,3)
 
+    menu:
+        "Quelle est votre plus grand défaut ?"
+        "Un tempérament ultraviolent":
+            $ AjouterACarac(trait.Ruse.NOM, 5)
+        "Je suis maladroit":
+            $ RetirerACarac(trait.Habilete.NOM, 2)
+        "Je suis facilement malade":
+            $ RetirerACarac(trait.Constitution.NOM, 2)
+        "Un peu obsédé sexuel, en tout cas trop pour un templier":
+            $ AjouterACarac(trait.Sexualite.NOM, 5)
+        "La cupidité":
+            $ AjouterACarac(trait.Cupidite.NOM, 5)
+        "La bêtise":
+            $ RetirerACarac(trait.Intelligence.NOM, 3)
+
     show lambert_img at right
     with moveinright
     lambert "Bienvenue jeune apprenti. Je suis chargé de vous accueillir dans la grande commanderie de la Ville. Vous venez de loin m'a t'on dit ?"
