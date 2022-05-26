@@ -81,3 +81,7 @@ label pas_evt_trouve:
 
 label probaAbsoluesSup100:
     "Le total des probas absolues dépasse 100%% !"
+
+label defaite:
+    "défaite : PAS FAIT:"
+    return
