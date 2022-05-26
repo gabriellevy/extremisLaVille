@@ -28,19 +28,6 @@ init -5 python:
         nbJoursDateNaissance = date - 365*ageActuel
         setattr(situation, temps.Date.DATE_NAISSANCE, nbJoursDateNaissance)
 
-    # def genererParents(situation):
-        # pere = pnj_spe.GenererPNJSpe(True, situation, 43 * 12 *30 + 24)
-        # pere.prenom_ = "Jacques"
-        # pere.nom_ = "d'Arc"
-        # pere.portraitStr_ = "images/portraits/childeric.jpg"
-        # situation.SetValCarac(pnj.Pnj.C_PERE, pere)
-
-        # mere = pnj_spe.GenererPNJSpe(False, situation, 36 * 12 *30 + 297)
-        # mere.prenom_ = "Isabelle"
-        # mere.nom_ = "Romée"
-        # mere.portraitStr_ = "images/portraits/basine.jpg"
-        # situation.SetValCarac(pnj.Pnj.C_MERE, mere)
-
     def genererPersoTemplier(situation, tousLesTraits):
         setattr(situation_, religion.Religion.C_RELIGION, religion.Christianisme.NOM)
         # traits de base
@@ -49,18 +36,6 @@ init -5 python:
 
         # compétences indispensables pour un templier
         setattr(situation, metier.Guerrier.NOM, 1)
-
-        # caracs secondaire selon choix au lancement
-        situation[trait.Ruse.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Charme.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Habilete.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Beaute.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Constitution.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Observation.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Force.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Intelligence.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Ascetisme.NOM] = trait.Trait.SEUIL_A
-        situation[trait.Altruisme.NOM] = trait.Trait.SEUIL_A
 
         # défaut selon choix au lancement
         situation[trait.Violence.NOM] = trait.Trait.SEUIL_A
@@ -76,13 +51,6 @@ init -5 python:
         situation[trait.Intelligence.NOM] = trait.Trait.SEUIL_A_PAS
         situation[trait.Courage.NOM] = trait.Trait.SEUIL_A_PAS
 
-        # caracs spécifiques
-        # situation.SetValCarac(perso.Perso.C_GLOIRE, 0)
-
-        # famille
-
-        # quartierDeDepart = situation.collectionQuartiers.getQuartierAleatoire(True)
-        # situation.SetCarac(quartier.Quartier.C_QUARTIER, quartierDeDepart.nom_)
         situation[identite.Identite.C_NOM] = "Baudoin"
 
         # situation[jeanne.Jeanne.CARTE_ACTUELLE] = "bg carte481"

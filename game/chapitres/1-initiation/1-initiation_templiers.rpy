@@ -1,11 +1,15 @@
 # musiques
 define audio.principale_temple = "musique/templiers/principale.mp3"
 define audio.rejoindre_temple = "musique/templiers/rejoindre_doux_spirituel.mp3"
+define audio.tedonimum = "musique/templiers/tedonimum.mp3"
+define audio.saladinbesiegejerusalem = "musique/templiers/saladinbesiegejerusalem.mp3"
+define audio.guyderosesquandary = "musique/templiers/guyderosesquandary.mp3"
+
  # persos
-define baudoin = Character('Baudoin', color="#87faf4") # héros templier
+define baudoin = Character('Baudoin', color="#195ac2") # héros templier
 
 image lambert_img = "coteries/templiers/lambert.png"
-define lambert = Character('Lambert', color="#195ac2")
+define lambert = Character('Lambert', color="#82260d")
 
 label initiation_templiers:
     scene bg univ_templiers
@@ -18,6 +22,23 @@ label initiation_templiers:
     "Ainsi les templiers sont aussi mercenaires tant que la cause est jugée honorable par l'ordre. "
     "L'université du temple est une somptueuse abbaye de pierre. "
     "Le confort y est médiocre comme y pousse la doctrine du temple mais la camaraderie et la foi inébranlable des occupants réchauffent le coeur de tous les apprentis."
+
+    menu:
+        "Quelle est votre plus grande qualité ?"
+        "Je suis rusé":
+            $ AjouterACarac(trait.Ruse.NOM, 3)
+        "Je suis convainquant et plein de charme":
+            $ AjouterACarac(trait.Charme.NOM,3)
+        "Je suis très habile":
+            $ AjouterACarac(trait.Habilete.NOM,3)
+        "Je suis coriace comme un noyer":
+            $ AjouterACarac(trait.Constitution.NOM,3)
+        "Je suis fort comme Hercule":
+            $ AjouterACarac(trait.Force.NOM,3)
+        "J'ai l'oeil perçant comme un aigle":
+            $ AjouterACarac(trait.Observation.NOM,3)
+        "Je suis très intelligent":
+            $ AjouterACarac(trait.Intelligence.NOM,3)
 
     show lambert_img at right
     with moveinright
