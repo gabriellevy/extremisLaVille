@@ -283,4 +283,4 @@ label TempliersRejoindre:
 
     "Vous vous installez dans le quartier du Temple à Saint Denis"
     $ situation_.SetValCarac(quartier.Quartier.C_QUARTIER, coterieTempliers.quartier_)
-    jump declenchement
+    jump declenchement_templiers
