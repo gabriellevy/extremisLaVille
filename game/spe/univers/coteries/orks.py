@@ -12,7 +12,7 @@ class Orks(coterie.Coterie):
     def __init__(self):
         self.nom_ = Orks.NOM
         self.id_ = Orks.ID
-        self.quartier_ = quartier.Poissy.NOM
+        self.quartier_ = quartier.Genevilliers.NOM
 
     def getLabelUniversite(self):
         return "univOrks"

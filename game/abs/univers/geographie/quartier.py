@@ -59,16 +59,16 @@ class LaDefense(Quartier):
         self.imageDeFond_ = u"bg la_defense"
         self.poidsDemographique_ = 1
 
-class Poissy(Quartier):
+class Genevilliers(Quartier):
     """
     quartier des orks
     """
 
-    NOM = u"Poissy"
+    NOM = u"Genevilliers"
 
     def __init__(self):
-        self.nom_ = Poissy.NOM
-        self.imageDeFond_ = u"bg poissy"
+        self.nom_ = Genevilliers.NOM
+        self.imageDeFond_ = u"bg genevilliers"
         self.poidsDemographique_ = 1
 
 class SaintMalo(Quartier):
@@ -112,8 +112,8 @@ class CollectionQuartiers:
         saintMalo = SaintMalo()
         self.SetQuartier(SaintMalo.NOM, saintMalo)
 
-        poissy = Poissy()
-        self.SetQuartier(Poissy.NOM, poissy)
+        genevilliers = Genevilliers()
+        self.SetQuartier(Genevilliers.NOM, genevilliers)
 
         suresnes = Suresnes()
         self.SetQuartier(Suresnes.NOM, suresnes)

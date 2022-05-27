@@ -273,11 +273,11 @@ init -20 python:
                 return True
             return False
 
-        # def GetQuartier(self):
-        #     valQuartierStr = self.GetValCarac(quartier.Quartier.C_QUARTIER)
-        #     if valQuartierStr == "":
-        #         return None
-        #     return self.collectionQuartiers[valQuartierStr]
+        def GetQuartier(self):
+            valQuartierStr = self.GetValCarac(quartier.Quartier.C_QUARTIER)
+            if valQuartierStr == "":
+                return None
+            return self.collectionQuartiers[valQuartierStr]
 
         def CreerCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
             self.AjouterCarac(idCarac, valCarac)
@@ -522,10 +522,10 @@ init -20 python:
                 strPossession = u"Aucune possession"
             return strPossession
 
-        # def AffichageQuartier(self):
-        #     if ( quartier.Quartier.C_QUARTIER not in self.caracs_):
-        #         return u"Pas d'habitation !!"
-        #     return self.caracs_[quartier.Quartier.C_QUARTIER]
+        def AffichageQuartier(self):
+            if ( quartier.Quartier.C_QUARTIER not in self.caracs_):
+                return u"Pas d'habitation !!"
+            return self.caracs_[quartier.Quartier.C_QUARTIER]
 
         def AffichageReligion(self):
             if not hasattr(self, religion.Religion.C_RELIGION):

@@ -29,6 +29,7 @@ init -5 python:
         setattr(situation, temps.Date.DATE_NAISSANCE, nbJoursDateNaissance)
 
     def genererPersoTemplier(situation, tousLesTraits):
+        global coteries_
         setattr(situation_, religion.Religion.C_RELIGION, religion.Christianisme.NOM)
         # traits de base
         setattr(situation_, trait.Richesse.NOM, trait.Trait.SEUIL_A_PAS)
@@ -39,8 +40,8 @@ init -5 python:
 
         situation[identite.Identite.C_NOM] = "Baudoin"
 
-        # situation[jeanne.Jeanne.CARTE_ACTUELLE] = "bg carte481"
-        return
+        coterieTempliers = coteries_[templiers.Templiers.ID]
+        setattr(situation_, quartier.Quartier.C_QUARTIER, coterieTempliers.quartier_)
 
 label naissance:
     scene bg rue_haussmann
