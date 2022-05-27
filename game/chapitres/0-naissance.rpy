@@ -53,6 +53,3 @@ label naissance:
             $ setattr(situation_, coterie.Coterie.C_COTERIE, templiers.Templiers.ID)
             $ genererPersoTemplier(situation_, traits_)
             jump initiation_templiers
-
-    # $ genererParents(situation_)
-    jump initiation
