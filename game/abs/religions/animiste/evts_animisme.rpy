@@ -55,11 +55,11 @@ init -5 python:
         # Artiste
         valsAnimalTotem["Araignée"] = valsAnimalTotem["Araignée"] + situation_.GetValCaracInt(trait.Artiste.NOM)
         # Spiritualite
-        # Charme
-        valsAnimalTotem["chat"] = valsAnimalTotem["chat"] + situation_.GetValCaracInt(trait.Charme.NOM)
-        valsAnimalTotem["coccinelle"] = valsAnimalTotem["coccinelle"] + situation_.GetValCaracInt(trait.Charme.NOM)
-        valsAnimalTotem["libellule"] = valsAnimalTotem["libellule"] + situation_.GetValCaracInt(trait.Charme.NOM)
-        valsAnimalTotem["panda"] = valsAnimalTotem["panda"] + situation_.GetValCaracInt(trait.Charme.NOM)
+        # charme / Persuasion
+        valsAnimalTotem["chat"] = valsAnimalTotem["chat"] + situation_.GetValCaracInt(trait.Persuasion.NOM)
+        valsAnimalTotem["coccinelle"] = valsAnimalTotem["coccinelle"] + situation_.GetValCaracInt(trait.Persuasion.NOM)
+        valsAnimalTotem["libellule"] = valsAnimalTotem["libellule"] + situation_.GetValCaracInt(trait.Persuasion.NOM)
+        valsAnimalTotem["panda"] = valsAnimalTotem["panda"] + situation_.GetValCaracInt(trait.Persuasion.NOM)
         # Observation
         valsAnimalTotem["aigle"] = valsAnimalTotem["aigle"] + situation_.GetValCaracInt(trait.Observation.NOM)
         valsAnimalTotem["vautour"] = valsAnimalTotem["vautour"] + situation_.GetValCaracInt(trait.Observation.NOM)
@@ -121,8 +121,8 @@ init -5 python:
         valsAnimalTotem["corbeau"] = valsAnimalTotem["corbeau"] + situation_.GetValCaracInt(trait.Pragmatisme.NOM)
         valsAnimalTotem["serpent"] = valsAnimalTotem["serpent"] + situation_.GetValCaracInt(trait.Pragmatisme.NOM)
         valsAnimalTotem["Tortue"] = valsAnimalTotem["Tortue"] + situation_.GetValCaracInt(trait.Pragmatisme.NOM)
-        # Intellectualisme
-        valsAnimalTotem["hibou"] = valsAnimalTotem["hibou"] + situation_.GetValCaracInt(trait.Intellectualisme.NOM)
+        # Erudition
+        valsAnimalTotem["hibou"] = valsAnimalTotem["hibou"] + situation_.GetValCaracInt(trait.Erudition.NOM)
         # Intelligence
         valsAnimalTotem["Éléphant"] = valsAnimalTotem["Éléphant"] + situation_.GetValCaracInt(trait.Intelligence.NOM)
         valsAnimalTotem["corbeau"] = valsAnimalTotem["corbeau"] + situation_.GetValCaracInt(trait.Intelligence.NOM)

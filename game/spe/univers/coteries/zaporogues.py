@@ -39,7 +39,7 @@ class Zaporogues(coterie.Coterie):
             trait.Poids.NOM, \
             trait.Cupidite.NOM, \
             trait.Industrie.NOM, \
-            trait.Intellectualisme.NOM, \
+            trait.Erudition.NOM, \
             trait.Ambition.NOM, \
             trait.Prudence.NOM, \
             ]

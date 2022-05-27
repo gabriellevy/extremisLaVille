@@ -114,7 +114,7 @@ def CalculerAmabiliteHommePremierContact(dicoTraitsPersoH):
                 if val >= trait.Trait.SEUIL_A_EXTREME:
                     niveauAmabilite = niveauAmabilite +1
                 niveauAmabilite = niveauAmabilite +1
-        elif traitJoueurStr == trait.Charme.NOM:
+        elif traitJoueurStr == trait.Persuasion.NOM:
             val = dicoTraitsPersoH[traitJoueurStr]
             if val <= trait.Trait.SEUIL_A_PAS:
                 if val <= trait.Trait.SEUIL_A_PAS_EXTREME:
@@ -188,7 +188,7 @@ def CalculerAmabiliteFemmePremierContact(dicoTraitsPnjF):
                 if val >= trait.Trait.SEUIL_A_EXTREME:
                     niveauAmabilite = niveauAmabilite +1
                 niveauAmabilite = niveauAmabilite +2
-        elif traitJoueurStr == trait.Charme.NOM:
+        elif traitJoueurStr == trait.Persuasion.NOM:
             val = dicoTraitsPnjF[traitJoueurStr]
             if val <= trait.Trait.SEUIL_A_PAS:
                 if val <= trait.Trait.SEUIL_A_PAS_EXTREME:

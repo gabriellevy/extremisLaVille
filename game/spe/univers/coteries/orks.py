@@ -32,12 +32,12 @@ class Orks(coterie.Coterie):
         si le perso a ces caracs il a plus de chances de ne pas vouloir rejoindre cette coterie
         """
         return [ \
-            trait.Intellectualisme.NOM, \
+            trait.Erudition.NOM, \
             trait.Industrie.NOM, \
             trait.Ambition.NOM, \
             trait.Sensibilite.NOM, \
             trait.Altruisme.NOM, \
-            trait.Charme.NOM, \
+            trait.Persuasion.NOM, \
             trait.Spiritualite.NOM, \
             trait.Artiste.NOM, \
             trait.Ascetisme.NOM, \

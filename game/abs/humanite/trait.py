@@ -181,13 +181,13 @@ class Franchise(TraitTernaire):
             return u""
 
 # intellectuel, // intelligent à priori mais a surtout tendance à intellectualiser tout, à conceptualiser, à aimer l'abstrait et la discussion
-# à l'inverse les pragmatiques ne voient que le concret et l'action. Peut être intelligent mais tendace à utiliser son intelligence de manière concrère et direct : plutôt terre à terre
-class Intellectualisme(TraitTernaire):
+# à l'inverse les pragmatiques ne voient que le concret et l'action. Peut être intelligent mais tendace à utiliser son intelligence de manière concrète et direct : plutôt terre à terre
+class Erudition(TraitTernaire):
 
-    NOM = u"Intellectualisme"
+    NOM = u"Erudition"
 
     def __init__(self):
-        self.eTrait_ = Intellectualisme.NOM
+        self.eTrait_ = Erudition.NOM
 
     def GetDescription(self, situation):
         val = situation[self.eTrait_]
@@ -198,9 +198,13 @@ class Intellectualisme(TraitTernaire):
             assert "Ce trait n'a pas comme valeur un int. Trait : {}. Valeur : {}".format(self.eTrait_, val)
 
         if val <= Trait.SEUIL_A_PAS:
-            return u"Pragmatique"
+            if val <= Trait.SEUIL_A_PAS_EXTREME:
+                return u"Inculte et fier de l'être"
+            return u"Inculte, Terre à terre"
         elif val >= Trait.SEUIL_A:
-            return u"Intellectuel" # ATTENTION ACCENTS : mettre 'u' devant les string à accents pour utiliser le mode unicode
+            if val >= Trait.SEUIL_A_EXTREME:
+                return u"Puit de science"
+            return u"Érudit" # ATTENTION ACCENTS : mettre 'u' devant les string à accents pour utiliser le mode unicode
         else:
             return u""
 
@@ -916,12 +920,16 @@ class Habilete(TraitGraduel):
         else:
             return ""
 
-class Charme(TraitGraduel):
+class Persuasion(TraitGraduel):
+    """
+    Utile dans toutes les négociations au sens large
+    Inclut pluis ou moins l'aura et le charme naturel
+    """
 
-    NOM = u"Charme"
+    NOM = u"Persuasion"
 
     def __init__(self):
-        self.eTrait_ = Charme.NOM
+        self.eTrait_ = Persuasion.NOM
 
     def GetDescription(self, situation):
         val = situation[self.eTrait_]
@@ -937,8 +945,8 @@ class Charme(TraitGraduel):
             return u"Déplaisant"
         elif val >= Trait.SEUIL_A:
             if val >= Trait.SEUIL_A_EXTREME:
-                return u"Très Charmant"
-            return u"Charmant"
+                return u"Aura de charme irrésistible"
+            return u"Persuasif"
         else:
             return ""
 
@@ -1072,8 +1080,8 @@ class CollectionTraits:
         self.SetTrait(Artiste.NOM, artiste)
         spiritualite = Spiritualite()
         self.SetTrait(Spiritualite.NOM, spiritualite)
-        charme = Charme()
-        self.SetTrait(Charme.NOM, charme)
+        charme = Persuasion()
+        self.SetTrait(Persuasion.NOM, charme)
         observation = Observation()
         self.SetTrait(Observation.NOM, observation)
         habilete = Habilete()
@@ -1108,8 +1116,8 @@ class CollectionTraits:
         self.SetTrait(Violence.NOM, violence)
         prag = Pragmatisme()
         self.SetTrait(Pragmatisme.NOM, prag)
-        intel = Intellectualisme()
-        self.SetTrait(Intellectualisme.NOM, intel)
+        intel = Erudition()
+        self.SetTrait(Erudition.NOM, intel)
         intelligence = Intelligence()
         self.SetTrait(Intelligence.NOM, intelligence)
         sensi = Sensibilite()

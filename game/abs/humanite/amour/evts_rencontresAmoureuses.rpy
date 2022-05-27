@@ -30,10 +30,10 @@ init -5 python:
     estLaid = condition.Condition(trait.Beaute.NOM, trait.Trait.SEUIL_A_PAS, condition.Condition.INFERIEUR_EGAL)
     estHideux = condition.Condition(trait.Beaute.NOM, trait.Trait.SEUIL_A_PAS_EXTREME, condition.Condition.INFERIEUR_EGAL)
 
-    estCharmant = condition.Condition(trait.Charme.NOM, trait.Trait.SEUIL_A, condition.Condition.SUPERIEUR_EGAL)
-    estTresCharmant = condition.Condition(trait.Charme.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.SUPERIEUR_EGAL)
-    estDeplaisant = condition.Condition(trait.Charme.NOM, trait.Trait.SEUIL_A_PAS, condition.Condition.INFERIEUR_EGAL)
-    estTresDeplaisant = condition.Condition(trait.Charme.NOM, trait.Trait.SEUIL_A_PAS_EXTREME, condition.Condition.INFERIEUR_EGAL)
+    estCharmant = condition.Condition(trait.Persuasion.NOM, trait.Trait.SEUIL_A, condition.Condition.SUPERIEUR_EGAL)
+    estTresCharmant = condition.Condition(trait.Persuasion.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.SUPERIEUR_EGAL)
+    estDeplaisant = condition.Condition(trait.Persuasion.NOM, trait.Trait.SEUIL_A_PAS, condition.Condition.INFERIEUR_EGAL)
+    estTresDeplaisant = condition.Condition(trait.Persuasion.NOM, trait.Trait.SEUIL_A_PAS_EXTREME, condition.Condition.INFERIEUR_EGAL)
 
     # état affectif et sexuel :
     aAuMoinsUnePnjEnSeduction = condition.Condition(relationAmoureuse.RelA.C_NB_PNJ_EN_SEDUCTION, 1, condition.Condition.SUPERIEUR_EGAL)

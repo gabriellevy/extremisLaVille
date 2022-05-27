@@ -22,13 +22,14 @@ label initiation_templiers:
     "Ainsi les templiers sont aussi mercenaires tant que la cause est jugée honorable par l'ordre. "
     "L'université du temple est une somptueuse abbaye de pierre. "
     "Le confort y est médiocre comme y pousse la doctrine du temple mais la camaraderie et la foi inébranlable des occupants réchauffent le coeur de tous les apprentis."
+    "Mais avant l'initiation personnalisez un peu votre personnage."
 
     menu:
         "Quelle est votre plus grande qualité ?"
         "Je suis rusé":
             $ AjouterACarac(trait.Ruse.NOM, 3)
         "Je suis convainquant et plein de charme":
-            $ AjouterACarac(trait.Charme.NOM,3)
+            $ AjouterACarac(trait.Persuasion.NOM,3)
         "Je suis très habile":
             $ AjouterACarac(trait.Habilete.NOM,3)
         "Je suis coriace comme un noyer":
@@ -44,7 +45,7 @@ label initiation_templiers:
         "Quelle est votre plus grand défaut ?"
         "Un tempérament ultraviolent":
             $ AjouterACarac(trait.Ruse.NOM, 5)
-        "Je suis maladroit" if situation_.GetValCaracInt(trait.Habilete.NOM) < 0:
+        "Je suis maladroit" if situation_.GetValCaracInt(trait.Habilete.NOM) <= 0:
             $ RetirerACarac(trait.Habilete.NOM, 2)
         "Je suis facilement malade":
             $ RetirerACarac(trait.Constitution.NOM, 2)
@@ -57,8 +58,8 @@ label initiation_templiers:
 
     show lambert_img at right
     with moveinright
-    lambert "Bienvenue jeune apprenti. Je suis chargé de vous accueillir dans la grande commanderie de la Ville. Vous venez de loin m'a t'on dit ?"
-    baudoin "De la commanderie du Danube. C'est là que j'ai été envoyé pour tester mon endurance, ma volonté et ma dévotion envers l'ordre et envers notre seigneur Jésus Christ."
+    lambert "Bienvenue jeune apprenti Baudoin. Je m'appelle Lambert, grand ordonateur du temple. Je suis chargé de vous accueillir dans la grande commanderie de la Ville. Vous venez de loin m'a t'on dit ?"
+    baudoin "Je viens de la commanderie du Danube. C'est là que j'ai été envoyé pour tester mon endurance, ma volonté et ma dévotion envers l'ordre et envers notre seigneur Jésus Christ."
     baudoin "J'y suis resté un an et je viens seulement d'arriver. C'est la première fois que j'entre dans la capitale."
     lambert "Une destination rude. Vous devez donc déjà vous être endurci et intégré à l'ordre. Mais vous n'êtes cependant pas encore un templier."
     lambert "À quel métier vous êtes vous formé durant ce séjour ?"
@@ -79,7 +80,7 @@ label initiation_templiers:
             $ AjouterACarac( metier.Paysan.NOM, 1)
             $ AjouterACarac( metier.Guerrier.NOM, 1)
             lambert "Vous avez du affronter bien des dangers. Ici votre vie devrait être plus calme."
-        "Je suis formé en architecture et ait été mis à contribution pour rénover le château de la commanderie.":
+        "Je suis formé en architecture et ai été mis à contribution pour rénover le château de la commanderie.":
             $ setattr(situation_, metier.Metier.C_METIER, metier.Architecte.NOM)
             $ AjouterACarac(metier.Architecte.NOM, 3)
             lambert "Remarquable à votre âge. Les fortifications sont inutiles ici mais les architectes sont toujours précieux."
@@ -116,6 +117,7 @@ label initiation_templiers:
         "J'aimerais avoir l'honneur de travailler un peu dans la grande bibliothèque.":
             lambert "Vous n'aurez pas accès à toutes les ailes mais pour le reste cela doit pouvoir se faire."
             $ AjouterACarac(metier.Bibliothecaire.NOM, 1)
+            $ AjouterACarac(trait.Erudition.NOM, 1)
         "J'aimerais travailler dans la rue à maintenir l'ordre.":
             lambert "Très bonne idée. Vous ferez connaissance avec le métier et avec la Ville."
             lambert "L'ordre du temple a en effet une grande importance dans la police de la ville et je devrais pouvoir arranger cela facilement."
@@ -125,8 +127,14 @@ label initiation_templiers:
             lambert "Les templiers sont toujours bienvenus dans la sécurité parttout sur Extremis. Car notre éthique et nos compétences martiales sont largement reconnues."
             $ AjouterACarac(metier.Vigile.NOM, 1)
             $ AjouterACarac(metier.GardeDuCorps.NOM, 1)
+        "Nous avions très peu d'ordinateurs sur le Danube mais ils me fascinaient. Pourrais-je apprendre à m'en servir ?":
+            lambert "Un intérêt peu orthodoxe pour un templier. Mais la technologie est un mal nécessaire dans la Ville.  Il est sain que certain d'entre nous la maîtrisent. J'arrangerai cela."
+            $ AjouterACarac(metier.Informaticien.NOM, 1)
 
+    hide lambert_img
+    with moveoutright
     show screen valeurs_traits
+    "A FAIRE ici : un peu de remplissage, présentation de l'Ordre etc..."
     jump templiersPostule
 
 label templiersPostule:
@@ -136,9 +144,10 @@ label templiersPostule:
     $ religionActuelle = situation_.GetValCarac(religion.Religion.C_RELIGION)
     if religionActuelle != religion.Christianisme.NOM:
         "Malheureusement seul un chrétien à la foi pure et désintéressée peut entrer dans l'Ordre. Quelles que soient vos protestations les ordonnateurs sentent la faiblesse de votre foi et vous refusent."
+        jump defaite
     show lambert_img at right
     with moveinright
-    "Vous vous trouvez dans un noir tunnel. Vous et chacun des deux ordonnateurs avez une torche en main qui peine à éclairer à quelques mètres alors que le tunnel semble très long vu la résonnance de vos voix."
+    "Vous vous trouvez dans un noir tunnel. Vous et chacun des deux ordonnateurs avez une torche en main. Mais elles peinent à éclairer à quelques mètres alors que le tunnel semble très long vu la résonnance de vos voix."
     lambert "Nous sommes dans les souterrains de la basilique de Saint Denis, les catacombes du Temple."
     lambert "Nous avons jugé votre demande sincère ; maintenant vous allez devoir prouver votre pureté, votre courage et votre détermination."
     lambert "Votre tâche est simple : suivez le tunnel, ne vous en écartez sous aucun prétexte et vous serez digne de devenir un des nôtres."
