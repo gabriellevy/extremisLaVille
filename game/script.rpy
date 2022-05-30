@@ -2,7 +2,7 @@
 default situation_ = SituationSpe("situation_")
 
 # --------------------------------------------
-# ------------------Persos
+# ------------------ Persos ------------------
 # --------------------------------------------
 define narrator = Character(color="#fafad8", what_italic=True)
 define std = Character('Perso standard...', color="#B22222") # personnage standard remplacé selon les situations. (son nom est mis à jour)
@@ -38,8 +38,8 @@ label init_secondary_data:
         situation_.collectionBlessures = blessures_
         maladies_ = pbsante.CollectionMaladies()
         situation_.collectionMaladies = maladies_
-        # quartiers_ = quartier.CollectionQuartiers()
-        # situation_.collectionQuartiers = quartiers_
+        quartiers_ = quartier.CollectionQuartiers()
+        situation_.collectionQuartiers = quartiers_
         metiers_ = metier.CollectionMetiers()
         situation_.collectionMetiers = metiers_
         debug_ = True

@@ -40,7 +40,7 @@ init -5 python:
 
         situation[identite.Identite.C_NOM] = "Baudoin"
 
-        coterieTempliers = coteries_[templiers.Templiers.ID]
+        coterieTempliers = templiers.Templiers()
         setattr(situation_, quartier.Quartier.C_QUARTIER, coterieTempliers.quartier_)
 
 label naissance:
