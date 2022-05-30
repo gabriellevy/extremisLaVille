@@ -23,10 +23,11 @@ init -1 python:
     from abs import selecteur
     import random
 
-    AjouterEvtsRien()
-    # AjouterEvtsHistoire()
-    # mise en place des caracs de bases
-    # MiseEnPlaceCaracsSyagrius()
+    # événements aléatoires de quartier
+    AjouterEvtsGenevilliers()
+    AjouterEvtsSaintGermainEnLaye()
+    AjouterEvtsSaintDenis()
+    AjouterEvtsLaDefense()
 
 label init_secondary_data:
     python:
@@ -51,20 +52,6 @@ label start:
     # play music musique_menu
     # queue music [ epique_principale, conquetes ] # pseudo liste de lecture temporaire
     jump init_secondary_data
-
-label debut_cycle:
-    show screen valeurs_traits
-    $ prochainEvt = determinationEvtCourant(situation_)
-    $ renpy.jump(prochainEvt)
-
-label fin_cycle:
-    # "Fin d'un cycle."
-    # jump loi_gombette # tmp test
-
-    $ situation_.TourSuivant()
-
-    if getattr(situation_, "Santé") != "Mort":
-        jump debut_cycle
 
 label mort:
     menu:

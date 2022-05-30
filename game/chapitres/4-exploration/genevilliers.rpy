@@ -19,6 +19,10 @@ screen boutons_carte_genevilliers():
 
 label genevilliers:
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.Genevilliers.NOM)
+    # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg genevilliers
     "Bienvenue chez les orks."
+    $ evtAleatoire = determinationEvtCourant(situation_)
+    $ renpy.call(evtAleatoire) # call comme ça les return à la fin des evts déclenchés nous ramènent ici
+    # ici le joueur doit avoir le choix de ce qu'il veut faire dans ce quartier (dont toujours le choix => continuer son chemin)
     jump exploration
