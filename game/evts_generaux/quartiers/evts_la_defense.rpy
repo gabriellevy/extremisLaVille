@@ -1,8 +1,22 @@
 # événements aléatoires dans ce quartiers
 
+ # persos
+image holo_rockeur_img = "quartiers/la_defense/holo_rockeur.png"
+define holo_rockeur = Character('Holopub', color="#f2e122")
+
+image holo_lyla_img = "quartiers/la_defense/holo_lyla.png"
+define holo_lyla = Character('Holopub', color="#f2e122")
+
+image holo_majordome_img = "quartiers/la_defense/holo_majordome.png"
+define holo_majordome = Character('Holopub', color="#f2e122")
+
+image holo_may_img = "quartiers/la_defense/holo_may.png"
+define holo_may = Character('Holopub', color="#f2e122")
+
 init -5 python:
     import random
     from abs import declencheur
+    from spe import decU
     from abs import selecteur
     from abs import proba
     from abs import condition
@@ -14,26 +28,59 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.LaDefense.NOM, condition.Condition.EGAL)
 
-        evtLaDefense1 = declencheur.Declencheur(0.1, "evtLaDefense1")
-        evtLaDefense1.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtLaDefense1)
+        evtholo_rockeur = decU.DecU(0.1, "evtholo_rockeur")
+        evtholo_rockeur.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtholo_rockeur)
 
-        evtLaDefense2 = declencheur.Declencheur(0.1, "evtLaDefense2")
-        evtLaDefense2.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtLaDefense2)
+        evtholo_lyla = decU.DecU(0.1, "evtholo_lyla")
+        evtholo_lyla.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtholo_lyla)
 
-        evtLaDefense3 = declencheur.Declencheur(0.1, "evtLaDefense3")
-        evtLaDefense3.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtLaDefense3)
+        evtholo_majordome = decU.DecU(0.1, "evtholo_majordome")
+        evtholo_majordome.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtholo_majordome)
 
-label evtLaDefense1:
-    "PAS FAIT : evtLaDefense1"
+        evtholo_may = decU.DecU(0.1, "evtholo_may")
+        evtholo_may.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtholo_may)
+
+        evtLaDefenseVide = declencheur.Declencheur(0.01, "evtLaDefenseVide")
+        evtLaDefenseVide.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtLaDefenseVide)
+
+label evtholo_rockeur:
+    show holo_rockeur_img at left
+    with moveinleft
+    holo_rockeur "Un bon défoulement pas cher au coin de al rue : catch de rue cyber augmenté et bières ! Plus des chiens mutants et des robots géants !"
+    hide holo_rockeur_img
+    with moveoutleft
     return
 
-label evtLaDefense2:
-    "PAS FAIT : evtLaDefense2"
+label evtholo_lyla:
+    show holo_lyla_img at left
+    with moveinleft
+    holo_rockeur "Venez visiter nos superbes appartements en plein coeur de la défense ! Jusqu'à 50 ans de crédit autorisés !"
+    hide holo_lyla_img
+    with moveoutleft
     return
 
-label evtLaDefense3:
-    "PAS FAIT : evtLaDefense3"
+label evtholo_majordome:
+    show holo_majordome_img at left
+    with moveinleft
+    holo_majordome "Le meilleur hotel de toute la défense, venez passer la nuit de vos rêves au Petit Palace del Peine."
+    hide holo_majordome_img
+    with moveoutleft
+    return
+
+label evtholo_may:
+    show holo_may_img at left
+    with moveinleft
+    holo_may "Venez goûter nos gâteaux faits maison au salon de thé de tante May."
+    hide holo_may_img
+    with moveoutleft
+    return
+
+label evtLaDefenseVide:
+    # à laisser vide (évt de remplissage en cas de manque d'évt réels)
+    "Vous pénétrez dans La Défense, quartier des transhumanistes."
     return

@@ -7,7 +7,7 @@ label tmp_exploration:
     jump final
 
 label exploration:
-    "stop tmp --2"
+    # "stop tmp --2"
     scene carte_la_ville idle
     $ quartierStr = getattr(situation_, quartier.Quartier.C_QUARTIER)
     if quartierStr == quartier.SaintGermainEnLaye.NOM:

@@ -3,6 +3,7 @@
 init -5 python:
     import random
     from abs import declencheur
+    from spe import decU
     from abs import selecteur
     from abs import proba
     from abs import condition
@@ -14,17 +15,18 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.SaintGermainEnLaye.NOM, condition.Condition.EGAL)
 
-        evtSaintGermainEnLaye1 = declencheur.Declencheur(0.1, "evtSaintGermainEnLaye1")
+        evtSaintGermainEnLaye1 = decU.DecU(0.1, "evtSaintGermainEnLaye1")
         evtSaintGermainEnLaye1.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtSaintGermainEnLaye1)
 
-        evtSaintGermainEnLaye2 = declencheur.Declencheur(0.1, "evtSaintGermainEnLaye2")
+        evtSaintGermainEnLaye2 = decU.DecU(0.1, "evtSaintGermainEnLaye2")
         evtSaintGermainEnLaye2.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtSaintGermainEnLaye2)
 
-        evtSaintGermainEnLaye3 = declencheur.Declencheur(0.1, "evtSaintGermainEnLaye3")
-        evtSaintGermainEnLaye3.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtSaintGermainEnLaye3)
+        # Toujours garder un événement vide répétable au cas où tous les autres sont arrivés (vu qu'ils sont non répétables)
+        evtSaintGermainEnLayeVide = declencheur.Declencheur(0.1, "evtSaintGermainEnLayeVide")
+        evtSaintGermainEnLayeVide.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtSaintGermainEnLayeVide)
 
 label evtSaintGermainEnLaye1:
     "PAS FAIT : evtSaintGermainEnLaye1"
@@ -34,6 +36,7 @@ label evtSaintGermainEnLaye2:
     "PAS FAIT : evtSaintGermainEnLaye2"
     return
 
-label evtSaintGermainEnLaye3:
-    "PAS FAIT : evtSaintGermainEnLaye3"
+label evtSaintGermainEnLayeVide:
+    # à laisser vide (évt de remplissage en cas de manque d'évt réels)
+    "Vous pénétrez dans Saint Germain en Laye, quartier des elfes."
     return
