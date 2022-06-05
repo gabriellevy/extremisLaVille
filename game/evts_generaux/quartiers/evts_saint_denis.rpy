@@ -3,6 +3,7 @@
 init -5 python:
     import random
     from abs import declencheur
+    from spe import decU
     from abs import selecteur
     from abs import proba
     from abs import condition
@@ -14,26 +15,27 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.SaintDenis.NOM, condition.Condition.EGAL)
 
-        evtSaintDenis1 = declencheur.Declencheur(0.1, "evtSaintDenis1")
-        evtSaintDenis1.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtSaintDenis1)
+        evtMissionnaires = decU.DecU(0.1, "evtMissionnaires")
+        evtMissionnaires.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtMissionnaires)
 
-        evtSaintDenis2 = declencheur.Declencheur(0.1, "evtSaintDenis2")
+        evtSaintDenis2 = decU.DecU(0.1, "evtSaintDenis2")
         evtSaintDenis2.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtSaintDenis2)
 
-        evtSaintDenis3 = declencheur.Declencheur(0.1, "evtSaintDenis3")
-        evtSaintDenis3.AjouterCondition(conditionDansQuartier)
-        selecteur_.ajouterDeclencheur(evtSaintDenis3)
+        # Toujours garder un événement vide répétable au cas où tous les autres sont arrivés (vu qu'ils sont non répétables)
+        evtSaintDenisVide = declencheur.Declencheur(0.01, "evtSaintDenisVide")
+        evtSaintDenisVide.AjouterCondition(conditionDansQuartier)
+        selecteur_.ajouterDeclencheur(evtSaintDenisVide)
 
-label evtSaintDenis1:
-    "PAS FAIT : evtSaintDenis1"
+label evtMissionnaires:
+    "PAS FAIT : evtMissionnaires"
     return
 
 label evtSaintDenis2:
     "PAS FAIT : evtSaintDenis2"
     return
 
-label evtSaintDenis3:
-    "PAS FAIT : evtSaintDenis3"
+label evtSaintDenisVide:
+    # à laisser vide (évt de remplissage en cas de manque d'évt réels)
     return
