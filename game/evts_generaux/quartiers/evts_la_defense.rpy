@@ -28,19 +28,19 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.LaDefense.NOM, condition.Condition.EGAL)
 
-        evtholo_rockeur = decU.DecU(0.1, "evtholo_rockeur")
+        evtholo_rockeur = decU.DecU(0.1, "evtholo_rockeur", 0)
         evtholo_rockeur.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtholo_rockeur)
 
-        evtholo_lyla = decU.DecU(0.1, "evtholo_lyla")
+        evtholo_lyla = decU.DecU(0.1, "evtholo_lyla", 0)
         evtholo_lyla.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtholo_lyla)
 
-        evtholo_majordome = decU.DecU(0.1, "evtholo_majordome")
+        evtholo_majordome = decU.DecU(0.1, "evtholo_majordome", 0)
         evtholo_majordome.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtholo_majordome)
 
-        evtholo_may = decU.DecU(0.1, "evtholo_may")
+        evtholo_may = decU.DecU(0.1, "evtholo_may", 0)
         evtholo_may.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtholo_may)
 

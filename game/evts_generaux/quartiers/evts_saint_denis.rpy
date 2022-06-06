@@ -19,12 +19,12 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.SaintDenis.NOM, condition.Condition.EGAL)
 
-        evtMissionnaires = decU.DecU(0.1, "evtMissionnaires")
+        evtMissionnaires = decU.DecU(0.1, "evtMissionnaires", 0)
         evtMissionnaires.AjouterCondition(estPasChretien)
         evtMissionnaires.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtMissionnaires)
 
-        evtSaintDenis2 = decU.DecU(0.1, "evtSaintDenis2")
+        evtSaintDenis2 = decU.DecU(0.1, "evtSaintDenis2", 0)
         evtSaintDenis2.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtSaintDenis2)
 
@@ -44,6 +44,7 @@ label evtMissionnaires:
             missionnaire "PAS FAIT : arguments d'évangélistes..."
             missionnaire "Je comprends que votre temps est compté mon frère mais si vous le souhaitez je peux moi-même vous baptiser dans la basilique Saint Denis d'où vous ressortirez sur le champs en vrai chértien."
             missionnaire "Croyez moi cette foi et cette protection vous seront grandement utiles dans votre quête."
+            $ situation_.AvanceDeXMinutes(5)
             menu:
                 "Non merci":
                     missionnaire "Allez en paix dans la lumière du seigneur. Nous nous reverrons j'en suis sûr."
@@ -51,6 +52,7 @@ label evtMissionnaires:
                 "D'accord":
                     "PAS FAIT : baptème avec en inclus le temps qui passe (au moins deux heures)"
                     $ setattr(situation_, religion.Religion.C_RELIGION, religion.Christianisme.NOM)
+                    $ situation_.AvanceDeXMinutes(137)
                     return
 
 label evtSaintDenis2:

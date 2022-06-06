@@ -15,11 +15,11 @@ init -5 python:
         global selecteur_
         conditionDansQuartier = condition.Condition( quartier.Quartier.C_QUARTIER, quartier.Genevilliers.NOM, condition.Condition.EGAL)
 
-        evtGenevilliers1 = decU.DecU(0.1, "evtGenevilliers1")
+        evtGenevilliers1 = decU.DecU(0.1, "evtGenevilliers1", 0)
         evtGenevilliers1.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtGenevilliers1)
 
-        evtGenevilliers2 = decU.DecU(0.1, "evtGenevilliers2")
+        evtGenevilliers2 = decU.DecU(0.1, "evtGenevilliers2", 0)
         evtGenevilliers2.AjouterCondition(conditionDansQuartier)
         selecteur_.ajouterDeclencheur(evtGenevilliers2)
 

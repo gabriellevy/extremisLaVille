@@ -11,8 +11,7 @@ screen boutons_carte_la_defense():
 label la_defense:
     # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.LaDefense.NOM)
-    # $ situation_.DemarrerMission(missions.Missions.MISSION1) # tmp test
-    # $ situation_.TourSuivant() # gérer temps qui passe
+    $ situation_.DemarrerMission(missions.Missions.MISSION1) # tmp test
     scene bg la_defense with dissolve
     show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)

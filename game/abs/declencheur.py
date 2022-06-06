@@ -29,7 +29,10 @@ class Declencheur:
 
         return self.proba_.calculer(situation)
 
-    def executer(self):
+    def executer(self, situation):
+        """
+        situation ajouté comme param car souvent utile dans les versions surclassées de cette fonction
+        """
         return self.labelGoTo_
 
     def AjouterCondition(self, condition):

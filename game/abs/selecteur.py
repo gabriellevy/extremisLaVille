@@ -48,6 +48,6 @@ class Selecteur:
                 if proba > 0:
                     probaTmp = probaTmp + proba
                     if resProba <= probaTmp:
-                        return declencheur.executer()
+                        return declencheur.executer(situation)
 
         return "pas_evt_trouve"
