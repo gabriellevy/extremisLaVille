@@ -6,9 +6,13 @@ label tmp_exploration:
     "phase principale de l'histoire PAS FAIT => "
     jump final
 
+init -40 python:
+    import random
+
 label exploration:
-    # "stop tmp --2"
     scene carte_la_ville idle
+    # temps qui passe (ici ?)
+    $ situation_.AvanceDeXMinutes(random.randint(15,30))
     $ quartierStr = getattr(situation_, quartier.Quartier.C_QUARTIER)
     if quartierStr == quartier.SaintGermainEnLaye.NOM:
         call screen boutons_carte_saint_germain_en_laye

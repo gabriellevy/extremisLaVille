@@ -1,12 +1,11 @@
 # define audio.sanctus = "musique/templiers/sanctus.mp3"
 
 init -5 python:
-    import random
     from abs.religions import religion
 
     def determinerAnimalTotem():
         """
-        forceConversion : si True le perso est immédiatement converti, sinon il a des chances de ne aps l'être si il a déjà une religion
+        forceConversion : si True le perso est immédiatement converti, sinon il a des chances de ne pas l'être si il a déjà une religion
         """
         global situation_
         animalTotemStr = ""

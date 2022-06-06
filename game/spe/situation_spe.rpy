@@ -18,6 +18,7 @@ init python:
         # COERCE_VALUES = False
 
         STAT_DEFAULTS = {
+            temps.Date.DATE: 0 # nb de jours au démarrage du jeu depuis an (ou jour ou autre) 0
         }
 
         def __init__(self, id, **kwargs):
@@ -89,9 +90,7 @@ init python:
             if getattr(self, "collectionMissions") == "":
                 setattr(self, "collectionMissions", missions.Missions())
 
-            print("longueur self.collectionMissions.lMissions_ : {}".format(len(self.collectionMissions.lMissions_)))
             missionObjTemplate = self.collectionMissions.lMissions_[idMission]
-            print("id mission : {}".format(missionObjTemplate.m_Id))
             self.SetCarac(idMission, missionObjTemplate)
 
         def GetDicoMissionsActives(self):
@@ -122,3 +121,24 @@ init python:
                 if missionObj != None and missionObj != "":
                     str = u"{}\n".format(missionObj)
             return str
+
+        # DATES ET TEMPS QUI PASSE-----------------------------------------------------------------------------------------------------------
+        # le temps est en minute => 0 étant le premier jour, et donc 60 * 24 est le début du deuxième
+
+        def AffichageDate(self):
+            dateStr = u"Jour {}".format(self.GetNumeroDuJour())
+            return dateStr
+
+        def GetNumeroDuJour(self):
+            nbMinutes = self.GetValCaracInt( temps.Date.DATE)
+            return nbMinutes / (60 * 24) + 1
+
+        def AvanceDeXMinutes(self, nbMinutesPassees):
+            nouvelleDateEnMinutes = self.GetValCaracInt( temps.Date.DATE) + nbMinutesPassees
+            setattr(self, temps.Date.DATE, nouvelleDateEnMinutes)
+
+            # application des jours passés aux missions :
+            missionsActives = self.GetDicoMissionsActives()
+            for missionActiveK in missionsActives:
+                missionActiveObj = missionsActives[missionActiveK]
+                missionActiveObj.AvanceDeXMinutes(nbMinutesPassees)

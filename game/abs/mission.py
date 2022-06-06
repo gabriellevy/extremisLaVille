@@ -13,3 +13,7 @@ class Mission(object):
         """Affichage quand on entre cet objet dans l'interpréteur"""
         return "Mission {} ({} minutes): {}".format(
             self.m_Id, self.m_TmpsMin, self.m_Description)
+
+    def AvanceDeXMinutes(self, nbMinutesPassees):
+        self.m_TmpsMin = self.m_TmpsMin - nbMinutesPassees
+        

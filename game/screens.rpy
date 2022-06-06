@@ -1552,6 +1552,7 @@ screen valeurs_traits():
     $ descriptionBlessures = situation_.DescriptionBlessuresEtMaladies(blessures_, maladies_)
     $ strMetier = situation_.AffichageMetier()
     $ strMissions = situation_.DescriptionMissionsActives()
+    $ strDate = situation_.AffichageDate()
     frame:
         xpos 5 ypos 5
         vbox:
@@ -1562,4 +1563,5 @@ screen valeurs_traits():
                 text _(u"[descriptionBlessures]")
                 text _(u"[descriptionTrait]")
             elif interfaceMode_ == 1: # données d'enquête ??
+                text _(u"[strDate]")
                 text _(u"[strMissions]")
