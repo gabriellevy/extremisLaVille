@@ -43,8 +43,6 @@ init -20 python:
         Situation de jeu
         Etat d'une partie à un instant t avec toutes les informations nécessaires pour la sauvegarder et la recharger
         en particulier la liste intégrale des caractéristiques du perso (qui sont une sous catégorie de la situation de jeu)
-
-        !!!! cette classe est peut-être à surclasser pour ajouter des effets particuliers à certaines caracs (dans SetCarac par exemple)
         """
 
         STORE_PREFIX = "stats"
@@ -52,7 +50,7 @@ init -20 python:
         COERCE_VALUES = False # False pour l'instant => bloque l'affectation à des types différents de ceux de l'origine, à exploiter un jour
 
         STAT_DEFAULTS = {
-            temps.Date.DATE: 0 # nb de jours au démarrage du jeu de puis an 0
+            temps.Date.DATE: 0 # nb de jours au démarrage du jeu depuis an (ou jour ou autre) 0
         }
 
         def __init__(self, id, **kwargs):
@@ -203,7 +201,8 @@ init -20 python:
 
                         pass
 
-            return super(Situation, self).__getattr__(key)
+            return ""
+            # return super(Situation, self).__getattr__(key)
 
 
         def __getattribute__(self, key):

@@ -1,8 +1,5 @@
 # ---------- quartier + ses boutons et ses fonctions associées
 
-
-
-
 screen boutons_carte_genevilliers():
     imagebutton:
         xpos 638
@@ -18,9 +15,11 @@ screen boutons_carte_genevilliers():
         focus_mask True
 
 label genevilliers:
+    # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.Genevilliers.NOM)
     # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg genevilliers with dissolve
+    show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)
     $ renpy.call(evtAleatoire) # call comme ça les return à la fin des evts déclenchés nous ramènent ici
     # ici le joueur doit avoir le choix de ce qu'il veut faire dans ce quartier (dont toujours le choix => continuer son chemin)

@@ -51,7 +51,7 @@ init -5 python:
 label evtholo_rockeur:
     show holo_rockeur_img at left
     with moveinleft
-    holo_rockeur "Un bon défoulement pas cher au coin de al rue : catch de rue cyber augmenté et bières ! Plus des chiens mutants et des robots géants !"
+    holo_rockeur "Un bon défoulement pas cher au coin de la rue : catch de rue cyber augmenté et bières ! Plus des chiens mutants et des robots géants !"
     hide holo_rockeur_img
     with moveoutleft
     return

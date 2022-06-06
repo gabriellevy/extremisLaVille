@@ -1551,7 +1551,7 @@ screen valeurs_traits():
     $ descriptionTrait = situation_.DescriptionTraits(traits_)
     $ descriptionBlessures = situation_.DescriptionBlessuresEtMaladies(blessures_, maladies_)
     $ strMetier = situation_.AffichageMetier()
-    # $ strGloire = situation_.AffichageGloire()
+    $ strMissions = situation_.DescriptionMissionsActives()
     frame:
         xpos 5 ypos 5
         vbox:
@@ -1561,6 +1561,5 @@ screen valeurs_traits():
                 text _(u"[strMetier]")
                 text _(u"[descriptionBlessures]")
                 text _(u"[descriptionTrait]")
-                # text _(u"[strGloire]")
             elif interfaceMode_ == 1: # données d'enquête ??
-                text _(" Rien PAS FAIT ")
+                text _(u"[strMissions]")

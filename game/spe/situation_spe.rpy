@@ -1,10 +1,11 @@
 init python:
     from abs.religions import religion
-    # from chapitres.classes import perso
     from spe.humanite import pnj_spe
     from abs.humanite import metier
     from abs.humanite import pnj
     from abs.humanite import trait
+    from abs import mission
+    from spe import missions
     import random
 
     class SituationSpe(Situation):
@@ -17,12 +18,11 @@ init python:
         # COERCE_VALUES = False
 
         STAT_DEFAULTS = {
-            'gender' : 'f',
-            'age' : 22,
-            'location' : 'school',
-            'affection' : 1,
-            'obedience' : 0.01,
         }
+
+        def __init__(self, id, **kwargs):
+            Situation.__init__(self, id, **kwargs)
+            self.collectionMissions = missions.Missions()
 
         # ------------------------------------------------AFFICHAGE---------------------------------------
         # def AffichageGloire(self):
@@ -83,3 +83,42 @@ init python:
             """
             nbJoursPasses = 11 + random.randint(0, 8)
             self.AvanceDeXJours(nbJoursPasses)
+
+        # --------------------------------------------------- missions ------------------------------
+        def DemarrerMission(self, idMission):
+            if getattr(self, "collectionMissions") == "":
+                setattr(self, "collectionMissions", missions.Missions())
+
+            print("longueur self.collectionMissions.lMissions_ : {}".format(len(self.collectionMissions.lMissions_)))
+            missionObjTemplate = self.collectionMissions.lMissions_[idMission]
+            print("id mission : {}".format(missionObjTemplate.m_Id))
+            self.SetCarac(idMission, missionObjTemplate)
+
+        def GetDicoMissionsActives(self):
+            """
+            renvoi la liste des missions du perso sous forme d'un dico avec comme clé l'id de la mission et comme valeur son contenu
+            les traits à "" ou 0 ne sont pas renvoyés
+            """
+            missionsPerso = {}
+            if getattr(self, "collectionMissions") == "":
+                setattr(self, "collectionMissions", missions.Missions())
+
+            for missionK in self.collectionMissions.lMissions_.keys():
+                valMission = self.GetValCarac(missionK)
+                if valMission != None and valMission != "" and valMission != 0:
+                    missionObj = self.collectionMissions[missionK]
+                    missionsPerso[missionObj.m_Id] = valMission
+            return missionsPerso
+
+        def DescriptionMissionsActives(self):
+            """
+            Description des missions
+            """
+            str = u"Pas de mission..."
+            missionsDico = self.GetDicoMissionsActives()
+            str = u"Pas de mission... {}".format(len(missionsDico))
+            for missionK in missionsDico.keys():
+                missionObj = missionsDico[missionK]
+                if missionObj != None and missionObj != "":
+                    str = u"{}\n".format(missionObj)
+            return str

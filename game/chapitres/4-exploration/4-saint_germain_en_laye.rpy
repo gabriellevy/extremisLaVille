@@ -9,9 +9,11 @@ screen boutons_carte_saint_germain_en_laye():
         focus_mask True
 
 label saint_germain_en_laye:
+    # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.SaintGermainEnLaye.NOM)
     # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg saint_germain_en_laye with dissolve
+    show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)
     $ renpy.call(evtAleatoire) # call comme ça les return à la fin des evts déclenchés nous ramènent ici
     # ici le joueur doit avoir le choix de ce qu'il veut faire dans ce quartier (dont toujours le choix => continuer son chemin)
