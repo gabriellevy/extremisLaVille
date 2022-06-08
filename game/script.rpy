@@ -28,6 +28,7 @@ init -1 python:
     AjouterEvtsSaintGermainEnLaye()
     AjouterEvtsSaintDenis()
     AjouterEvtsLaDefense()
+    AjouterEvtsNoisiel()
 
 label init_secondary_data:
     python:

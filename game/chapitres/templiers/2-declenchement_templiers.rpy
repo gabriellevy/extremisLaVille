@@ -1,6 +1,6 @@
 
  # persos
-define ordi = Character('Ordinateur', color="#097a1c") # == Arca Tamaris
+define ordi = Character('Ordinateur', color="#097a1c") # == Arca Tamaris (mais on ne le sait pas encore)
 
 
 label declenchement_templiers:

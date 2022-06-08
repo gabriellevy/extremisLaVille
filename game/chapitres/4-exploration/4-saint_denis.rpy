@@ -9,6 +9,12 @@ screen boutons_carte_saint_denis():
         auto "images/carte/bouton_genevilliers_%s.png"
         action Jump("genevilliers") alt "Genevilliers"
         focus_mask True
+    imagebutton:
+        xpos 1217
+        ypos 308
+        auto "images/carte/bouton_noisiel_%s.png"
+        action Jump("noisiel") alt "Noisiel"
+        focus_mask True
 
 label saint_denis:
     # arrivée dans le quartier

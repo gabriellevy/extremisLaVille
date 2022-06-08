@@ -95,6 +95,18 @@ class Suresnes(Quartier):
         self.imageDeFond_ = u"bg saint_malo"
         self.poidsDemographique_ = 0.2
 
+class Noisiel(Quartier):
+    """
+    quartier des achéronais
+    """
+
+    NOM = u"Noisiel"
+
+    def __init__(self):
+        self.nom_ = Noisiel.NOM
+        self.imageDeFond_ = u"bg noisiel"
+        self.poidsDemographique_ = 0.1
+
 class CollectionQuartiers:
 
     def __init__(self):
@@ -117,6 +129,9 @@ class CollectionQuartiers:
 
         suresnes = Suresnes()
         self.SetQuartier(Suresnes.NOM, suresnes)
+
+        noisiel = Noisiel()
+        self.SetQuartier(Noisiel.NOM, noisiel)
 
     def getQuartierAleatoire(self, selonPoidsDemo):
         if selonPoidsDemo:
