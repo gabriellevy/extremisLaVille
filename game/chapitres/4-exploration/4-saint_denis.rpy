@@ -15,6 +15,12 @@ screen boutons_carte_saint_denis():
         auto "images/carte/bouton_noisiel_%s.png"
         action Jump("noisiel") alt "Noisiel"
         focus_mask True
+    imagebutton:
+        xpos 914
+        ypos 448
+        auto "images/carte/bouton_saint_maur_des_fosses_%s.png"
+        action Jump("saint_maur_des_fosses") alt "Saint Maur des fossés"
+        focus_mask True
 
 label saint_denis:
     # arrivée dans le quartier

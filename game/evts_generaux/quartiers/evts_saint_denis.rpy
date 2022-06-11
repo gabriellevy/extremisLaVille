@@ -37,7 +37,7 @@ label evtMissionnaires:
     "Un groupe de chrétiens missionnaires vous a remarqué."
     missionnaire "Bonjour mon frère, vous ne semblez pas connaître notre seigneur Jésus Christ qui a souffert pouvr vos péchés et veut votre plus grand bien."
     menu:
-        "Laisez moi tranquille s'il vous plaît.":
+        "Laissez moi tranquille s'il vous plaît.":
             missionnaire "Allez en paix dans la lumière du seigneur."
             return
         "Non en effet de qui s'agit-t'il ?":

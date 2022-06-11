@@ -24,4 +24,6 @@ label exploration:
         call screen boutons_carte_la_defense
     if quartierStr == quartier.Noisiel.NOM:
         call screen boutons_carte_noisiel
+    if quartierStr == quartier.SaintMaurDesFosses.NOM:
+        call screen boutons_carte_saint_maur_des_fosses
     "ERREUR : si vous voyez ce message c'est qu'il y a une erreur dans exploration.rpy"
