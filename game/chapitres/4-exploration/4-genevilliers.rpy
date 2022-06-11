@@ -13,6 +13,11 @@ screen boutons_carte_genevilliers():
         auto "images/carte/bouton_la_defense_%s.png"
         action Jump("la_defense") alt "La Défense"
         focus_mask True
+    imagebutton:
+        xpos 460
+        ypos 64
+        idle "images/carte/bouton_genevilliers_localisation.png"
+        focus_mask True
 
 label genevilliers:
     # arrivée dans le quartier

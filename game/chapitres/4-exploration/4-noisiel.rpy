@@ -15,6 +15,11 @@ screen boutons_carte_noisiel():
         auto "images/carte/bouton_saint_maur_des_fosses_%s.png"
         action Jump("saint_maur_des_fosses") alt "Saint Maur des fossés"
         focus_mask True
+    imagebutton:
+        xpos 1217
+        ypos 308
+        idle "images/carte/bouton_noisiel_localisation.png"
+        focus_mask True
 
 label noisiel:
     # arrivée dans le quartier
