@@ -61,4 +61,3 @@ init -2 python:
         interfaceMode_ = interfaceMode_ + 1
         if interfaceMode_ >= nbInterfaceMode_:
             interfaceMode_ = 0
-        print(interfaceMode_)

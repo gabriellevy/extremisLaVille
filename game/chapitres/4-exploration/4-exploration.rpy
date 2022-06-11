@@ -8,6 +8,7 @@ label tmp_exploration:
 
 init -40 python:
     import random
+    from spe.donnees_perso import objet_spe
 
 label exploration:
     scene carte_la_ville idle

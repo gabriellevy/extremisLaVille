@@ -106,8 +106,10 @@ init -20 python:
             self.collectionMetiers = None
             self.collectionBlessures = None
             self.collectionMaladies = None
+            self.collectionObjets_ = None # tous els objets existants dans un jeu donné
             # self.collectionQuartiers = None
             self.collectionPnjs = {}
+            # self.inventaire_ = []
 
             self.run_optional_method( '__post_init__', id, **kwargs )
 
@@ -636,3 +638,14 @@ init -20 python:
             """
             nbJoursPasses = (28 + random.randint(0, 3))*nbMois
             self.AvanceDeXJours(nbJoursPasses)
+
+    # --------------- INVENTAIRE --------------------------
+
+        def AjouterObjet(self, id):
+            for objet in self.collectionObjets_:
+                print("Objet : {}".format(objet.id_))
+                print("id : {}".format(id))
+                if id == objet.id_:
+                    self.inventaire_.append(objet)
+                    return
+            print("erreur dans AjouterObjet : {} introuvable dans collectionObjets !".format(id))

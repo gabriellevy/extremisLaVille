@@ -1545,23 +1545,3 @@ transform fade_move_with_pars(delay, x, y, move_x, move_y):
 
 screen fading_text(text, delay, x, y, move_x, move_y, *args, **kwargs):
     add Text(text, *args, **kwargs) at fade_move_with_pars(delay, x, y, move_x, move_y)
-
-screen valeurs_traits():
-    tag interface_personnage
-    $ descriptionTrait = situation_.DescriptionTraits(traits_)
-    $ descriptionBlessures = situation_.DescriptionBlessuresEtMaladies(blessures_, maladies_)
-    $ strMetier = situation_.AffichageMetier()
-    $ strMissions = situation_.DescriptionMissionsActives()
-    $ strDate = situation_.AffichageDate()
-    frame:
-        xpos 5 ypos 5
-        vbox:
-            textbutton _("Description suivante"):
-                action Function(InterfaceSuivante)
-            if interfaceMode_ == 0: # résumé des données importantes du perso
-                text _(u"[strMetier]")
-                text _(u"[descriptionBlessures]")
-                text _(u"[descriptionTrait]")
-            elif interfaceMode_ == 1: # données d'enquête ??
-                text _(u"[strDate]")
-                text _(u"[strMissions]")

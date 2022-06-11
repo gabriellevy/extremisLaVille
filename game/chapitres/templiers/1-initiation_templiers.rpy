@@ -279,8 +279,8 @@ label TempliersRejoindre:
     $ situation_.SetValCarac(templiers.Templiers.C_RICHESSE, templiers.Templiers.RICHESSE_TEMPLE)
     $ situation_.SetValCarac(trait.Richesse.NOM, templiers.Templiers.RICHESSE_TEMPLE)
     lambert "Voici votre robe blanche marquée du symbole de l'ordre."
+    lambert "Voici votre épée rituelle de templier."
+    $ situation_.AjouterObjet(objet_spe.EpeeTemplier.ID)
     lambert "Portez cette croix avec fierté et honneur, que tous les hommes qui vous croiseront continuent à y voir un symbole de pureté et de force comme ça a toujours été le cas depuis la fondation de notre Ordre il y a plus de deux mille ans."
-
-    "Vous vous installez dans le quartier du Temple à Saint Denis"
     $ situation_.SetValCarac(quartier.Quartier.C_QUARTIER, coterieTempliers.quartier_)
     jump declenchement_templiers

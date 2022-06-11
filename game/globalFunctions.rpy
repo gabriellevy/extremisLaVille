@@ -6,8 +6,8 @@ init 0 python:
     from abs.humanite.sante import pbsante
     from chapitres.classes import perso
     import random
-    interfaceMode_ = 0
-    nbInterfaceMode_ = 2
+    interfaceMode_ = 2
+    nbInterfaceMode_ = 3
     # cultures / coteries
     # francs_ = francs.Francs()
 
@@ -60,7 +60,6 @@ init 0 python:
         interfaceMode_ = interfaceMode_ + 1
         if interfaceMode_ >= nbInterfaceMode_:
             interfaceMode_ = 0
-        print(interfaceMode_)
 
     def AfficherCarteActuelle():
         global situation_

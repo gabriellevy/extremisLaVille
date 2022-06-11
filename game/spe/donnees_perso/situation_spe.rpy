@@ -11,11 +11,11 @@ init python:
     class SituationSpe(Situation):
 
         # Set the store.{prefix}.character_id value
-        # STORE_PREFIX = "character_stats"
+        STORE_PREFIX = "stats_spe"
 
         # Boolean toggle for validation - defaults both True
-        # VALIDATE_VALUES = False
-        # COERCE_VALUES = False
+        VALIDATE_VALUES = False
+        COERCE_VALUES = False
 
         STAT_DEFAULTS = {
             temps.Date.DATE: 0 # nb de jours au démarrage du jeu depuis an (ou jour ou autre) 0
