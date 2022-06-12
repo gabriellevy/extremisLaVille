@@ -29,7 +29,6 @@ init -5 python:
         setattr(situation, temps.Date.DATE_NAISSANCE, nbJoursDateNaissance)
 
     def genererPersoTemplier(situation, tousLesTraits):
-        global coteries_
         setattr(situation_, religion.Religion.C_RELIGION, religion.Christianisme.NOM)
         # traits de base
         setattr(situation_, trait.Richesse.NOM, trait.Trait.SEUIL_A_PAS)

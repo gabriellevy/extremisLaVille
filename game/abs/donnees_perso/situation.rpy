@@ -108,7 +108,7 @@ init -20 python:
             # self.collectionMaladies = None
             # self.collectionQuartiers = None
             # self.collectionPnjs = {}
-            # self.inventaire_ = []
+            self.inventaire_ = []
 
             self.run_optional_method( '__post_init__', id, **kwargs )
 
@@ -322,8 +322,8 @@ init -20 python:
 
             # self.SetCarac(idCarac, valCarac, valeurMin, valeurMax)
 
-        # def SetValCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
-        #     self.SetCarac(idCarac, valCarac, valeurMin, valeurMax)
+        def SetValCarac(self, idCarac, valCarac, valeurMin = "", valeurMax = ""):
+            self.SetCarac(idCarac, valCarac, valeurMin, valeurMax)
 
         def GetMetier(self):
             valMetierStr = getattr(self, metier.Metier.C_METIER)
