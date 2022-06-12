@@ -2,7 +2,7 @@
 class Mission(object):
     """
     Classe très basique qui sert de cadre pour les missions, en particulier à temps limité
-     """
+    """
 
     def __init__(self, id, description, tmpsMin):
         self.m_Id = id
@@ -16,4 +16,3 @@ class Mission(object):
 
     def AvanceDeXMinutes(self, nbMinutesPassees):
         self.m_TmpsMin = self.m_TmpsMin - nbMinutesPassees
-        

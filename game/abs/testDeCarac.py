@@ -59,7 +59,7 @@ class TestDeCarac:
             valCarac = valCarac / len(carac)
         else:
             valCarac = situation.GetValCaracInt(self.caracs_)
-        print("valCarac : {} ".format(valCarac)) # tmp test
+        print("valCarac {} : {} ".format(self.caracs_, valCarac)) # tmp test
         print("self.difficulte_ : {}".format(self.difficulte_)) # tmp test
 
         diff = [

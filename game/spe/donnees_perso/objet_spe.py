@@ -1,8 +1,8 @@
-from abs.donnees_perso import objet
+from abs.donnees_perso import possession
 
-class ObjetSpe(objet.Objet):
+class ObjetSpe(possession.Possession):
     def __init__(self, id, image):
-        objet.Objet.__init__(self, id, image)
+        possession.Possession.__init__(self, id, image)
 
 class EpeeTemplier(ObjetSpe):
     ID = u"Épée de templier"

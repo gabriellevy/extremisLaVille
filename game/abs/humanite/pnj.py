@@ -97,18 +97,18 @@ def GenererPNJ(sexeMasculin, situation, ageJours):
     return pnj
 
 def GenererPNJPapa(situation):
-    nbJoursVecusPerso = temps.Date(situation.caracs_[temps.Date.DATE]).nbJours_ - temps.Date(situation.caracs_[temps.Date.DATE_NAISSANCE]).nbJours_
+    nbJoursVecusPerso = temps.Date(getattr(situation, temps.Date.DATE)).nbJours_ - temps.Date(getattr(situation, temps.Date.DATE_NAISSANCE)).nbJours_
     ageJours = (30 + random.randint(0, 35)) * 12 *30 # âge 29 minimum (14 + 15 de l'âge du perso joué)
     return GenererPNJ(True, situation, ageJours)
 
 def GenererPNJMaman(situation):
-    nbJoursVecusPerso = temps.Date(situation.caracs_[temps.Date.DATE]).nbJours_ - temps.Date(situation.caracs_[temps.Date.DATE_NAISSANCE]).nbJours_
+    nbJoursVecusPerso = temps.Date(getattr(situation, temps.Date.DATE)).nbJours_ - temps.Date(getattr(situation, temps.Date.DATE_NAISSANCE)).nbJours_
     ageJours = (30 + random.randint(0, 25)) * 12 *30 # âge 29 minimum (14 + 15 de l'âge du perso joué)
     pnj = GenererPNJ(False, situation, ageJours)
     return pnj
 
 def GenererRelationAmoureuse(situation):
-    nbJoursVecusPerso = temps.Date(situation.caracs_[temps.Date.DATE]).nbJours_ - temps.Date(situation.caracs_[temps.Date.DATE_NAISSANCE]).nbJours_
+    nbJoursVecusPerso = temps.Date(getattr(situation, temps.Date.DATE)).nbJours_ - temps.Date(getattr(situation, temps.Date.DATE_NAISSANCE)).nbJours_
     ageAnnees = nbJoursVecusPerso/360 + (random.randint(0, 13) - random.randint(0, 15))
     if ageAnnees < 15:
         ageAnnees = 15

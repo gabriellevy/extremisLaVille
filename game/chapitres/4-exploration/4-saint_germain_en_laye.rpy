@@ -11,7 +11,6 @@ screen boutons_carte_saint_germain_en_laye():
 label saint_germain_en_laye:
     # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.SaintGermainEnLaye.NOM)
-    # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg saint_germain_en_laye with dissolve
     show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)

@@ -3,7 +3,7 @@ screen valeurs_traits():
     $ descriptionTrait = situation_.DescriptionTraits(traits_)
     $ descriptionBlessures = situation_.DescriptionBlessuresEtMaladies(blessures_, maladies_)
     $ strMetier = situation_.AffichageMetier()
-    $ strMissions = situation_.DescriptionMissionsActives()
+    # $ strMissions = situation_.DescriptionMissionsActives()
     $ strDate = situation_.AffichageDate()
     frame:
         xpos 5 ypos 5
@@ -16,15 +16,15 @@ screen valeurs_traits():
                 text _(u"[descriptionTrait]")
             elif interfaceMode_ == 1: # données d'enquête ??
                 text _(u"[strDate]")
-                text _(u"[strMissions]")
-            elif interfaceMode_ == 2: # inventaire
-                hbox:
-                    for i in situation_.inventaire_:
+            #     text _(u"[strMissions]")
+            # elif interfaceMode_ == 2: # inventaire
+            #     hbox:
+            #         for i in situation_.inventaire_:
                         # On crée une frame...
-                        frame:
-                            xpadding 10
-                            ypadding 10
-                            xmargin 10
-                            ymargin 10
+            #             frame:
+            #                 xpadding 10
+            #                 ypadding 10
+            #                 xmargin 10
+            #                 ymargin 10
                             # Contenant l'image attachée à chaque item.
-                            add i.image_ size(60,60)
+            #                 add i.image_ size(60,60)

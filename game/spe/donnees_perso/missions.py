@@ -1,4 +1,4 @@
-from abs import mission
+from abs.donnees_perso import mission
 
 # pas sûr que ça sauvegarde => à tester !!
 class Missions(object):

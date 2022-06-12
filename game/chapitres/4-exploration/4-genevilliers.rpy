@@ -22,7 +22,6 @@ screen boutons_carte_genevilliers():
 label genevilliers:
     # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.Genevilliers.NOM)
-    # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg genevilliers with dissolve
     show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)

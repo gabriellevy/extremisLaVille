@@ -30,7 +30,6 @@ screen boutons_carte_saint_denis():
 label saint_denis:
     # arrivée dans le quartier
     $ setattr(situation_, quartier.Quartier.C_QUARTIER, quartier.SaintDenis.NOM)
-    # $ situation_.TourSuivant() # gérer temps qui passe
     scene bg saint_denis with dissolve
     show screen valeurs_traits
     $ evtAleatoire = determinationEvtCourant(situation_)
