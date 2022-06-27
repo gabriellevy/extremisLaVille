@@ -37,6 +37,8 @@ label declenchement_templiers:
     scene bg hospice
     with Dissolve(3.0)
     "Quelques jours ont passé. Vous êtes déjà très intégré dans l'équipe de l'hopital, et déjà éprouvé par la misère et les souffrances auxquelles vous assistez chaque jour."
+    scene bg hopital_nuit
+    with Dissolve(0.5)
     "Une nuit vous finissez votre patrouille dans le pavillon des cancers en phase terminale. Là où des maheureux agonisent, reliés à des fils et des machines."
     "Quand des légers bruits électroniques sortant en permanence des ordinateurs sont remplacés par des crissements aigus agaçants. Cela ressemble à un dysphonctionnement des machines."
     $ test = testDeCarac.TestDeCarac(metier.Informaticien.NOM, 1, situation_)
@@ -51,7 +53,10 @@ label declenchement_templiers:
             else:
                 "Vous n'avez à peu près jamais touché un ordinateur. C'est vrai que ces bruits sont étranges mais après tout vous n'êtes là que depuis quelques jours."
             pass
-
+    "Soudain l'écran s'éteint et un grésillement sort des ordinateurs puis de la fumée."
+    scene black
+    with Dissolve(0.5)
+    "Puis les lumières s'éteignent."
 
     # après début incident
     "Soudain votre ordinateur se met à chauffer, le ventilateur fait un bruit énorme, vous perdez le contrôle de la souris."
