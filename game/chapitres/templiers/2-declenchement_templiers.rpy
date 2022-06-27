@@ -1,7 +1,7 @@
+# déclenchement de l'événements principal (section histoire suffisament longue pour pouvoir introduire les principaux personnages)
 
- # persos
+# persos
 define ordi = Character('Ordinateur', color="#097a1c") # == Arca Tamaris (mais on ne le sait pas encore)
-
 
 label declenchement_templiers:
     scene bg interieur_basilique
@@ -13,7 +13,7 @@ label declenchement_templiers:
     show lambert_img at right
     with moveinright
     lambert "Félicitations jeune templier, le personnel est satisfait de ton service et de ton attitude. De ta foi aussi."
-    lambert "Mais être templier c'est bien plus que d'être un bon chrétien obéissant. Notre réputation repose sur notre éthique, notre force de caractère, notre sens des responsabilités."
+    lambert "Mais être templier c'est bien plus que d'être un bon chrétien obéissant. Notre réputation repose sur notre éthique, notre force, notre sens des responsabilités."
     menu:
         "Bien entendu, maître.":
             pass
@@ -21,7 +21,37 @@ label declenchement_templiers:
             pass
     lambert "C'est pourquoi pour t'éprouver et te former j'ai proposé de te charger de la sécurité dans un de nos hopitaux. Celui de Saint Christophe."
     lambert "Ces établissements sont modestes et n'ont pas pour but de faire des profits. Mais ils sont le symbole de notre mission sur terre au service des humbles, ce qui est bien plus important."
-    "A FAIRE : petite intro de la première semaine de boulot (le problème arrive selement quelques jours après arrivée du héros => fait exprès par Lambert le traître)"
+    lambert "Cela peut paraître une faible responsabilité. Car qui attaquerait un petit hopital gratuit dédié aux pauvres ?"
+    lambert "Mais ce n'est pas à prendre à la légère. Si la charité est la première vertu des templiers, la force est la deuxième, et l'honneur la troisième."
+    lambert "Notre réputation repose sur ces piliers. Ce quon nous confie : malades, blessés, secrets, objets précieux, est et doit rester en sécurité absolue."
+    menu:
+        "Je comprends.":
+            pass
+        "Ne rien dire":
+            pass
+        "Bien. Puis-je demander combien de temps cela durera ?":
+            lambert "Non."
+    lambert "Le docteur Robert te recevra et te donnera les instructions. Sois digne de l'ordre et va en paix dans la gloire du seigneur."
+
+    # à l'hopital
+    scene bg hospice
+    with Dissolve(3.0)
+    "Quelques jours ont passé. Vous êtes déjà très intégré dans l'équipe de l'hopital, et déjà éprouvé par la misère et les souffrances auxquelles vous assistez chaque jour."
+    "Une nuit vous finissez votre patrouille dans le pavillon des cancers en phase terminale. Là où des maheureux agonisent, reliés à des fils et des machines."
+    "Quand des légers bruits électroniques sortant en permanence des ordinateurs sont remplacés par des crissements aigus agaçants. Cela ressemble à un dysphonctionnement des machines."
+    $ test = testDeCarac.TestDeCarac(metier.Informaticien.NOM, 1, situation_)
+    menu:
+        "Ignorer":
+            pass
+        "Aller voir [test.affichage_]":
+            $ reussi = test.TesterDifficulte(situation_)
+            if reussi:
+                "Vous remarquez des sautes d'écran tout à fait inhabituelles. Les pixels changent de couleur, le pc chauffe."
+                $ situation_.SetValCarac(carac.Carac.C_IND_INFORMATIQ, 1)
+            else:
+                "Vous n'avez à peu près jamais touché un ordinateur. C'est vrai que ces bruits sont étranges mais après tout vous n'êtes là que depuis quelques jours."
+            pass
+
 
     # après début incident
     "Soudain votre ordinateur se met à chauffer, le ventilateur fait un bruit énorme, vous perdez le contrôle de la souris."

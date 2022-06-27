@@ -4,6 +4,7 @@ init python:
     from abs.humanite import metier
     from abs.humanite import pnj
     from abs.humanite import trait
+    from chapitres.templiers import carac
     import random
 
     class SituationSpe(Situation):
@@ -21,6 +22,13 @@ init python:
 
         # def __init__(self, id, **kwargs):
         #     Situation.__init__(self, id, **kwargs)
+
+
+        def AffichageIndices(self):
+            strIndices = u"Indices : "
+            if self.GetValCarac(carac.Carac.C_IND_INFORMATIQ) == 1:
+                strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_INFORMATIQ)
+            return strIndices
 
         # -------------------------------------------------- temps -------------------------------------------------
 

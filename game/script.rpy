@@ -25,6 +25,7 @@ init -1 python:
     from abs.donnees_perso import possession
     from spe.donnees_perso import objet_spe
     from abs import selecteur
+    from chapitres.templiers import carac
     import random
 
     # événements aléatoires de quartier
