@@ -57,6 +57,12 @@ label declenchement_templiers:
     scene black
     with Dissolve(0.5)
     "Puis les lumières s'éteignent."
+    "Le courant est-il coupé ? Vous paniquez en pensant aux malades sous respirateur artificiel qui sont sous votre responsabilité. Mais non, l'appareillage tourne correctement. En fait seules les lampes sont grillées."
+    "Les écrans d'ordinateur se rallument."
+    scene bg arca_tamaris
+    with Dissolve(0.5)
+    "Mais ils n'affichent plus qu'un horrible visage grimaçant."
+    " A FAIRE : suite à faire"
 
     # après début incident
     "Soudain votre ordinateur se met à chauffer, le ventilateur fait un bruit énorme, vous perdez le contrôle de la souris."
