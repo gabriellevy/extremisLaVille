@@ -62,28 +62,57 @@ label declenchement_templiers:
     scene bg arca_tamaris
     with Dissolve(0.5)
     "Mais ils n'affichent plus qu'un horrible visage grimaçant."
-    " A FAIRE : suite à faire"
+    "Du texte s'affiche au bas de l'écran comme un sous-titre au visage déformé"
+    ordi "Où suis-je ?"
 
-    # après début incident
-    "Soudain votre ordinateur se met à chauffer, le ventilateur fait un bruit énorme, vous perdez le contrôle de la souris."
-    menu:
-        "Éteindre l'ordinateur immédiatement":
-            "Vous avez beau appuyer sur le bouton l'ordinateur ne s'éteint pas. Impossible d'agir dessus. Vous vous apprêtez à la débrancher mais..."
-        "Attendre":
-            pass
-    "L'écran s'éteint subitement, l'ordinateur fait encore un léger bruit, comme si il n'était pas tout à fait éteint lui-même."
-    "Du texte commence à s'écrire lentement en vert sur l'écran maintenant noir : "
-    ordi "Où suis-je ? Quel est cet ordinateur ? Tappez au clavier pour me répondre."
-    menu:
-        "Que faire ?"
-        "Ne rien dire ni écrire":
-            "PAS FAIT"
-        "Répondre : ceci est l'ordinateur de l'hopital des templiers.":
-            "PAS FAIT"
-        "Répondre : qui êtes vous ?":
-            "PAS FAIT"
-        "Répondre : vous êtes sur l'ordinateur de Baudoin.":
-            "PAS FAIT"
+    $ situation_.SetValCarac("declenchement_templiers_arca_essais", 0)
+    label declenchement_templiers_arca:
+        $ situation_.AjouterACarac("declenchement_templiers_arca_essais", 1)
+        $ declenchement_templiers_arca_essais = situation_.GetValCaracInt("declenchement_templiers_arca_essais")
+        menu:
+            "Que faire ?"
+            "Ne rien faire":
+                if declenchement_templiers_arca_essais > 1:
+                    jump declenchement_templiers_arca_furieux
+                else:
+                    ordi "Il n'y a donc personne ici ? Répondez au clavier bande d'idiots !"
+                    jump declenchement_templiers_arca
+            "Taper au clavier : ceci est l'ordinateur de l'hopital Sant Christophe.":
+                jump declenchement_templiers_haine_templiers
+            "Taper au clavier : ceci est l'ordinateur de l'hopital.":
+                ordi "Quel hopital ? "
+                menu:
+                    "écrire : L'hopital Saint Christophe":
+                        jump declenchement_templiers_haine_templiers
+                    "écrire : Cela ne vous regarde pas.":
+                        jump declenchement_templiers_arca_furieux
+                    "Ne rien répondre":
+                        jump declenchement_templiers_arca
+            "Couper le courant.":
+                "Mauvaise idée ! Avant d'arracher la prise vous réalisez que vous risquez de tuer les patients !"
+                if declenchement_templiers_arca_essais > 1:
+                    jump declenchement_templiers_arca_furieux
+                jump declenchement_templiers_arca
+            "Éteindre l'ordinateur.":
+                scene black
+                with Dissolve(0.5)
+                "L'écran saute et le visage disparaît. La salle redevient silencieuse. Vous vous sentez soulagé."
+                jump declenchement_templiers_boum
+
+    label declenchement_templiers_haine_templiers:
+        ordi "Chez les cul bénis ? Superbe ! Une occasion de s'amuser à ne pas rater !"
+        scene black
+        with Dissolve(0.5)
+        "Puis l'écran s'éteint."
+        $ situation_.SetValCarac(carac.Carac.C_IND_HAINE_TEMPLIERS, 1)
+        jump declenchement_templiers_boum
+
+    label declenchement_templiers_arca_furieux:
+        ordi "Très bien ! Peut-être que si je vous montre que je ne plaisante pas vous allez vous décider à réagir !"
+        jump declenchement_templiers_boum
+
+    label declenchement_templiers_boum:
+        "PAS FAIT : casse tout"
 
     "PAS FAIT : test informatique pour voir si le perso a l'idée et capacité de copier du code tampon de l'ordinateur pour l'analyser et reccueillir des indices sur le virus"
     "PAS FAIT : prendra X heures avant d'avoir un résultat => le déposer aux transhumanistes ??"

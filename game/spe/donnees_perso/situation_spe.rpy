@@ -28,6 +28,8 @@ init python:
             strIndices = u"Indices : "
             if self.GetValCarac(carac.Carac.C_IND_INFORMATIQ) == 1:
                 strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_INFORMATIQ)
+            if self.GetValCarac(carac.Carac.C_IND_HAINE_TEMPLIERS) == 1:
+                strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_HAINE_TEMPLIERS)
             return strIndices
 
         # -------------------------------------------------- temps -------------------------------------------------
