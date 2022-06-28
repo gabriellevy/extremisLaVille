@@ -112,7 +112,44 @@ label declenchement_templiers:
         jump declenchement_templiers_boum
 
     label declenchement_templiers_boum:
-        "PAS FAIT : casse tout"
+        scene bg hopital_nuit
+        with Dissolve(0.5)
+        "Soudain des étincelles jaillissent dans la pièce depuis les appareils électriques. Les lumières se rallument, clignotent, éclatent."
+        "Les malades se tortillent sur leur lit."
+        "Un ricanement sadique sort des haut-parleurs d'alarme."
+        $ situation_.SetValCarac("declenchement_templiers_boum_choix_essais", 0)
+        label declenchement_templiers_boum_choix:
+            $ situation_.AjouterACarac("declenchement_templiers_boum_choix_essais", 1)
+            $ declenchement_templiers_boum_choix_essais = situation_.GetValCaracInt("declenchement_templiers_boum_choix_essais")
+            $ testMedecin = testDeCarac.TestDeCarac(metier.Medecin.NOM, 4, situation_)
+            $ testInfo = testDeCarac.TestDeCarac(metier.Informaticien.NOM, 6, situation_)
+            menu:
+                "Vous sonnez l'alerte":
+                    if declenchement_templiers_boum_choix_essais > 1:
+                        jump declenchement_templiers_boum_choix_fini
+                    jump declenchement_templiers_boum_choix
+                "Vous essayez d'aider les malades [testMedecin.affichage_]":
+                    $ reussi = testMedecin.TesterDifficulte(situation_)
+                    if reussi:
+                        "PAS FAIT : malade sauvé"
+                    else:
+                        "PAS FAIT : arrive à rien"
+                    jump declenchement_templiers_boum_choix
+                "Vous tentez de comprendre ce qui se passe dans l'ordinateur [testInfo.affichage_]":
+                    $ reussi = testInfo.TesterDifficulte(situation_)
+                    if reussi:
+                        "Le contenu de la mémoire vive et les processus changent à une vitesse extrême comme sous l'effet d'un virus très adaptable."
+                        "Mais ce n'est pas le moment pour une analyse, le temps prime. Vous enregistrez le maximum de données de votre puce pour analyse extérieure."
+                    else:
+                        "L'ordinateur ne répond plus. Son écran change seul et sans arrêt d'une image aléatoire à une autre. Vous ne parvenez pas à en tirer quoi que ce soit."
+                    jump declenchement_templiers_boum_choix
+                "Vous courez chercher de l'aide":
+                    "PAS FAIT : mal vu par les chefs, réputation -1 ou je ne sais quoi. => même carac que la réputation qu'on a avec chaque coterie ??"
+
+
+
+    label declenchement_templiers_boum_choix_fini:
+        "PAS FAIT : fin de la possibilité d'agir, morts etc"
 
     "PAS FAIT : test informatique pour voir si le perso a l'idée et capacité de copier du code tampon de l'ordinateur pour l'analyser et reccueillir des indices sur le virus"
     "PAS FAIT : prendra X heures avant d'avoir un résultat => le déposer aux transhumanistes ??"
