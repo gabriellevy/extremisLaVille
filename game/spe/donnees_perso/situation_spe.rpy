@@ -26,10 +26,13 @@ init python:
 
         def AffichageIndices(self):
             strIndices = u"Indices : "
+            # indices de la partie Templiers
             if self.GetValCarac(carac.Carac.C_IND_INFORMATIQ) == 1:
                 strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_INFORMATIQ)
             if self.GetValCarac(carac.Carac.C_IND_HAINE_TEMPLIERS) == 1:
                 strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_HAINE_TEMPLIERS)
+            if self.GetValCarac(carac.Carac.C_IND_DONNEES_VIRUS) == 1:
+                strIndices = u"{}\n{}".format(strIndices, carac.Carac.C_IND_DONNEES_VIRUS)
             return strIndices
 
         # -------------------------------------------------- temps -------------------------------------------------

@@ -118,41 +118,51 @@ label declenchement_templiers:
         "Les malades se tortillent sur leur lit."
         "Un ricanement sadique sort des haut-parleurs d'alarme."
         $ situation_.SetValCarac("declenchement_templiers_boum_choix_essais", 0)
+        $ situation_.SetValCarac("malades_sauves", 0)
+        $ alerte_sonne = 0
         label declenchement_templiers_boum_choix:
             $ situation_.AjouterACarac("declenchement_templiers_boum_choix_essais", 1)
             $ declenchement_templiers_boum_choix_essais = situation_.GetValCaracInt("declenchement_templiers_boum_choix_essais")
             $ testMedecin = testDeCarac.TestDeCarac(metier.Medecin.NOM, 4, situation_)
             $ testInfo = testDeCarac.TestDeCarac(metier.Informaticien.NOM, 6, situation_)
             menu:
-                "Vous sonnez l'alerte":
+                "Que faire ?"
+                "Vous sonnez l'alerte" if alerte_sonne == 0:
+                    $ alerte_sonne = 1
+                    "Vous appuyez sur le bouton d'alerte. Dieu merci il répond et une sirène retentit. Les médecins de garde seront bientôt là pour sauver les patients."
+                    $ situation_.AjouterACarac("malades_sauves", 3)
                     if declenchement_templiers_boum_choix_essais > 1:
                         jump declenchement_templiers_boum_choix_fini
                     jump declenchement_templiers_boum_choix
                 "Vous essayez d'aider les malades [testMedecin.affichage_]":
                     $ reussi = testMedecin.TesterDifficulte(situation_)
                     if reussi:
-                        "PAS FAIT : malade sauvé"
+                        $ situation_.AjouterACarac("malades_sauves", 4)
+                        "Vous parvenez à repérer en un éclair les malades que vous pourrez sauver grâce à vos talents de secouriste et accomplissez du mieux que vous pouvez les premiers soins."
+                        jump declenchement_templiers_boum_choix_fini
                     else:
-                        "PAS FAIT : arrive à rien"
+                        "On ne s'improvise pas médecin en urgence et vos gestes maladroits ne sauvent personne."
                     jump declenchement_templiers_boum_choix
                 "Vous tentez de comprendre ce qui se passe dans l'ordinateur [testInfo.affichage_]":
                     $ reussi = testInfo.TesterDifficulte(situation_)
                     if reussi:
                         "Le contenu de la mémoire vive et les processus changent à une vitesse extrême comme sous l'effet d'un virus très adaptable."
-                        "Mais ce n'est pas le moment pour une analyse, le temps prime. Vous enregistrez le maximum de données de votre puce pour analyse extérieure."
+                        "Mais ce n'est pas le moment pour une analyse détaillée, le temps prime. Vous enregistrez le maximum de données dans votre puce neurale personnelle pour analyse extérieure."
+                        $ situation_.SetValCarac(carac.Carac.C_IND_DONNEES_VIRUS, 1)
                     else:
                         "L'ordinateur ne répond plus. Son écran change seul et sans arrêt d'une image aléatoire à une autre. Vous ne parvenez pas à en tirer quoi que ce soit."
                     jump declenchement_templiers_boum_choix
                 "Vous courez chercher de l'aide":
-                    "PAS FAIT : mal vu par les chefs, réputation -1 ou je ne sais quoi. => même carac que la réputation qu'on a avec chaque coterie ??"
-
+                    $ situation_.AjouterACarac("malades_sauves", 2)
+                    "Vous parvenez à secouer et ameuter quelques infirmiers à moitié endormis. À votre retour la plupart des patients sont déjà morts. Les infirmiers parvinnent seulement à sauver les plus chanceux en les transférant dans une autre unité."
+                    jump declenchement_templiers_boum_choix_fini
 
 
     label declenchement_templiers_boum_choix_fini:
-        "PAS FAIT : fin de la possibilité d'agir, morts etc"
+        "Il n'y a plus rien que vous puissiez faire. La plupart des patients sont morts ou mourants. Les médecins vous poussent en dehors de la salle."
+        "PAS FAIT : chf nous requiert pour debriefing etc"
 
-    "PAS FAIT : test informatique pour voir si le perso a l'idée et capacité de copier du code tampon de l'ordinateur pour l'analyser et reccueillir des indices sur le virus"
-    "PAS FAIT : prendra X heures avant d'avoir un résultat => le déposer aux transhumanistes ??"
+    "PAS FAIT : prendra X heures avant d'avoir un résultat d'analyse des données => le déposer aux transhumanistes ??"
 
 
     jump premier_deplacement
