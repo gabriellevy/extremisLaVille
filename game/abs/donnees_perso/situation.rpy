@@ -2,7 +2,6 @@ init -20 python:
     from abs.religions import religion
     from abs.humanite.sante import pbsante
     from abs.univers import temps
-    # from univers.geographie import quartier
     from abs.humanite import portrait
     from abs.humanite import pnj
     from abs.humanite import trait
@@ -202,7 +201,7 @@ init -20 python:
 
                         pass
 
-            # return "" # A FAIRE : fait déonner la sauvegarde : POURQUOI ?
+            # return "" # A FAIRE : fait déconner la sauvegarde : POURQUOI ?
             return super(Situation, self).__getattr__(key)
 
 
@@ -599,6 +598,9 @@ init -20 python:
             return temps.Date(dateEnJours)
 
         def AvanceDeXJours(self, nbJoursPasses):
+            global collectionPnjs_
+            global metiers_
+
             nouvelleDateEnJours = getattr(self, temps.Date.DATE) + nbJoursPasses
             setattr(self, temps.Date.DATE, nouvelleDateEnJours)
             setattr(self, temps.Date.DATE_ANNEES, self.GetDate(nouvelleDateEnJours).GetNbAnnees())
@@ -607,14 +609,14 @@ init -20 python:
                 setattr(self, temps.Date.AGE_ANNEES, self.AgeEnAnnees())
 
             # application des jours passés aux pnjs :
-            for pnjObj in self.collectionPnjs.values():
+            for pnjObj in collectionPnjs_.values():
                 nbAnneesAvant = pnjObj.nbJours_/360
                 pnjObj.nbJours_ = pnjObj.nbJours_ + nbJoursPasses
                 nbAnneesApres = pnjObj.nbJours_/360
                 # si le perso a pris une année et que la nouvelle année est un multiple de 5 on lui change de portrait
                 if nbAnneesApres > nbAnneesAvant:
                     if nbAnneesAvant%5 == 0:
-                        pnjObj.MajPortrait(self)
+                        pnjObj.MajPortrait(self, metiers_)
 
             # avancée des caracs de jours qui passent :
             # jours de convalescence :
